@@ -1,0 +1,77 @@
+# Python Swirl
+
+**Aprenda estatística praticando em Python.**
+
+Curso interativo gratuito para iniciantes. Você faz uma previsão, calcula em Python, interpreta o resultado e aplica a ideia a outros dados. A compreensão estatística orienta cada atividade.
+
+**Idealização e direção pedagógica: [Sidiney Rodrigues, pedagogo](https://github.com/sidineyr).**
+
+## Comece em poucos passos
+
+Instale Python 3.10 ou superior, baixe ou clone o repositório e abra o terminal na pasta do README. Não é necessário instalar bibliotecas para estudar.
+
+Windows:
+
+```powershell
+py -3 -m python_swirl
+```
+
+Linux:
+
+```sh
+python3 -m python_swirl
+```
+
+Escolha a lição **1**. Exemplo do que você vai investigar:
+
+```python
+>>> mean([10, 12, 14, 16, 88])
+28
+>>> median([10, 12, 14, 16, 88])
+14
+```
+
+O tempo de 88 minutos eleva a média. Qual medida comunica melhor um tempo típico? O curso pede que você explique, além de calcular. Os sinais `>>>` ilustram a interação; não os copie ao digitar.
+
+## Lições disponíveis
+
+| Lição | Você aprende a |
+| --- | --- |
+| O que uma média esconde? | Comparar média e mediana e investigar um valor extremo |
+| Duas turmas, a mesma média. São iguais? | Interpretar amplitude, desvio padrão e gráfico de pontos |
+| Uma amostra conta toda a história? | Simular amostras e distinguir variabilidade de viés |
+
+Dados simulados, linguagem em português e respostas abertas com critérios de autoavaliação. Código e progresso ficam no computador, sem conta ou API paga.
+
+## Ajuda e retomada
+
+- `:dica`: apoio progressivo, chegando a uma solução comentada.
+- `:explorar`: experimentar Python sem avançar.
+- `:repetir`: reler a etapa.
+- `:bloco`: escrever várias linhas; encerrar com `.` em uma linha própria.
+- `:sair`: pausar; escolha a mesma lição na próxima execução para retomar.
+- `:reiniciar`: refazer a lição, removendo o progresso dela.
+
+Respostas abertas não recebem nota automática. Para exportar suas respostas, use `python -m python_swirl --exportar minhas-respostas.json`. Os gráficos são SVGs locais com descrição textual; o curso informa onde abri-los.
+
+## Documentação e contribuição
+
+- [Instalação](docs/INSTALACAO.md) e [guia completo de uso](docs/USO.md).
+- [Currículo, pesquisa e arquitetura](docs/PROJETO.md).
+- [Criar lições](docs/AUTORIA.md) e [contribuir](CONTRIBUTING.md).
+- [Avaliação pedagógica](docs/AVALIACAO.md), [validação técnica](docs/VALIDACAO.md) e [histórico](CHANGELOG.md).
+- [Créditos](CREDITS.md) e [licenças](LICENSE.md).
+
+## Estado e limites
+
+A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Dez testes técnicos passaram em Linux/Python 3.12.14; testes com estudantes e auditoria de acessibilidade ainda precisam ser realizados. A matriz de Linux e Windows está configurada em [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para saber quais ambientes efetivamente passaram.
+
+O código do estudante executa localmente, sem isolamento, e é reexecutado na retomada. Use código e lições de confiança. Consulte [o guia de uso](docs/USO.md) para detalhes; este executor não deve ser exposto como serviço web.
+
+## Créditos e compromisso social
+
+Inspirado no [swirl do R](https://swirlstats.com/) e em seu [repositório original](https://github.com/swirldev/swirl). Projeto independente, sem vínculo oficial. A primeira versão foi elaborada com assistência de ChatGPT/Codex, sob orientação do idealizador. Veja [os créditos](CREDITS.md).
+
+O Python Swirl é um projeto educacional gratuito. Caso o projeto gere lucro, o idealizador declara que esse lucro será destinado ao **[Hospital Pequeno Príncipe](https://pequenoprincipe.org.br/)**. Esse compromisso não representa comprovação de doações realizadas, parceria ou endosso do hospital. Para apoio direto, consulte [os canais oficiais da instituição](https://pequenoprincipe.org.br/doadores/apoie-o-pequeno-principe/).
+
+Código original: [MIT](LICENSE). Conteúdo educacional e dados simulados originais: [CC BY 4.0](LICENSE.md). Dados pessoais e respostas dos estudantes não estão abrangidos por essa licença.
