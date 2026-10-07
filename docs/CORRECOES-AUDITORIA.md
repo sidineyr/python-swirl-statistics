@@ -19,6 +19,8 @@ Progresso antigo é preservado; na lição 3 a migração retoma no primeiro apo
 
 As prévias usam JavaScript, sem executor Python, requisições de respostas, cadastro, anúncios ou armazenamento persistente. Metadados, canonical, privacidade, autoria, MIT/CC BY 4.0, compromisso com Hospital Pequeno Príncipe e informação real sobre indexação são preservados.
 
-Vinte testes Python passaram localmente; cálculos web, sintaxe JS, links e seis páginas do sitemap foram conferidos. A matriz CI e publicação devem ser consultadas nos jobs do commit entregue. Testes com participantes, leitores de tela, Windows pessoal, macOS e dispositivos móveis reais não foram realizados. Zoom e teclado são inspecionados no navegador disponível, sem alegação de conformidade integral WCAG.
+Vinte testes Python passaram localmente; cálculos web, sintaxe JS, links e seis páginas do sitemap foram conferidos. A matriz CI e publicação devem ser consultadas nos jobs do commit entregue. Testes com participantes, leitores de tela, Windows pessoal, macOS e dispositivos móveis reais não foram realizados. Os três percursos e controles por teclado foram inspecionados em Chrome desktop; o controle de zoom não pôde ser utilizado, portanto 200%, 400% e 320 CSS px permanecem pendentes, sem alegação de conformidade integral WCAG.
 
 O protocolo para cinco iniciantes está em AVALIACAO.md. Não há resultados humanos inventados. Pendências reais de indexação e AdSense permanecem em INDEXACAO.md e ADSENSE.md; esta revisão não declara entrada confirmada nos índices nem aprovação de anúncios.
+
+Na inspeção após publicação, os dados iniciais desapareciam ao entrar no cálculo. Foram movidos para um painel permanente, com a previsão registrada, e o feedback de transferência foi particularizado por tema. A confirmação de reinício foi cancelada no teste e preservou a reflexão. Consulte VALIDACAO.md para evidências e limites.

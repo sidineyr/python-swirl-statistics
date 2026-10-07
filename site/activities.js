@@ -6,9 +6,9 @@
   const amplitude = values => Math.max(...values) - Math.min(...values);
   const number = text => /^[-+]?\d+(?:[.,]\d+)?$/.test(text.trim()) ? Number(text.trim().replace(',', '.')) : NaN;
   const tasks = {
-    media: {expected:28, prediction:'0', next:'A média considera todos os valores. O atraso eleva a média para 28; a mediana continua em 14 minutos.', summary:'Primeiro grupo: média 28, mediana 14. Novo grupo: média 40, mediana 24. A mediana pode resumir o centro; a média também informa totais. Um valor extremo deve ser investigado, não apagado automaticamente.'},
-    dispersao: {expected:7, prediction:'1', next:'A amplitude da turma B é 10 − 3 = 7 pontos; na A, 8 − 6 = 2. Ambas têm média 7. Isso não explica causas.', summary:'Médias iguais não garantem distribuições iguais. Amplitudes: A = 2 e B = 7 pontos. Desvios populacionais: aproximadamente 0,63 e 2,76 pontos. No novo caso, a unidade é minuto. Os dados não permitem atribuir causas ao professor.'},
-    amostragem: {expected:55.4, prediction:'1', next:'A soma é 277 e há cinco pessoas: 277 / 5 = 55,4 minutos. O segundo sorteio tem média 46,6; a população simulada tem média 59,5.', summary:'Estimativas 55,4 e 46,6 variam porque os sorteios incluem pessoas diferentes. A população simulada tem média 59,5. Selecionar apenas tempos baixos produz viés neste exemplo; aumentar essa seleção não resolve automaticamente o problema. Dados simulados não descrevem uma escola real.'}
+    media: {expected:28, prediction:'0', transferWrong:'A média 40 é soma dividida pela quantidade; nenhum tempo do novo grupo é 40. A maioria não precisa ter o valor da média. Compare a mediana 24 e mencione o extremo 108.', next:'A média considera todos os valores. O atraso eleva a média para 28; a mediana continua em 14 minutos.', summary:'Primeiro grupo: média 28, mediana 14. Novo grupo: média 40, mediana 24. A mediana pode resumir o centro; a média também informa totais. Um valor extremo deve ser investigado, não apagado automaticamente.'},
+    dispersao: {expected:7, prediction:'1', transferWrong:'Amplitude descreve o espalhamento dos tempos, em minutos. Esses tempos não medem por si só quanto as pessoas aprenderam. Reveja a unidade e o que foi observado.', next:'A amplitude da turma B é 10 − 3 = 7 pontos; na A, 8 − 6 = 2. Ambas têm média 7. Isso não explica causas.', summary:'Médias iguais não garantem distribuições iguais. Amplitudes: A = 2 e B = 7 pontos. Desvios populacionais: aproximadamente 0,63 e 2,76 pontos. No novo caso, a unidade é minuto. Os dados não permitem atribuir causas ao professor.'},
+    amostragem: {expected:55.4, prediction:'1', transferWrong:'Mais pessoas escolhidas somente entre tempos baixos ainda excluem tempos altos. Investigue quem pode entrar na seleção; aumentar o tamanho não elimina esse viés automaticamente.', next:'A soma é 277 e há cinco pessoas: 277 / 5 = 55,4 minutos. O segundo sorteio tem média 46,6; a população simulada tem média 59,5.', summary:'Estimativas 55,4 e 46,6 variam porque os sorteios incluem pessoas diferentes. A população simulada tem média 59,5. Selecionar apenas tempos baixos produz viés neste exemplo; aumentar essa seleção não resolve automaticamente o problema. Dados simulados não descrevem uma escola real.'}
   };
   const api = {mean, median, amplitude, number, tasks};
   if (typeof module !== 'undefined') module.exports = api;
@@ -32,6 +32,8 @@
     el('predict').addEventListener('click', () => {
       if (!el('prediction').value) { el('prediction').focus(); return; }
       prediction = el('prediction').selectedOptions[0].textContent;
+      el('prediction-note').hidden = false;
+      el('prediction-note').textContent = `Sua previsão: ${prediction}. Compare com o cálculo antes de revisar.`;
       show(1);
     });
     el('hint').addEventListener('click', () => { el('hint-text').hidden = false; el('feedback').textContent = el('hint-text').textContent; });
@@ -70,7 +72,7 @@
     el('check-transfer').addEventListener('click', () => {
       if (!el('transfer').value) { el('transfer').focus(); return; }
       const correct = el('transfer').value === '0';
-      el('transfer-feedback').textContent = correct ? 'Interpretação coerente com este caso. Explique agora com suas palavras e cite um limite.' : 'Reveja os dados e o contexto: uma medida não estabelece causas nem remove viés automaticamente. Tente outra interpretação.';
+      el('transfer-feedback').textContent = correct ? 'Interpretação coerente com este caso. Explique agora com suas palavras e cite um limite.' : task.transferWrong;
       el('to-review').hidden = !correct;
     });
     el('to-review').addEventListener('click', () => {
@@ -85,7 +87,7 @@
       attempts = []; prediction = '';
       ['answer','prediction','transfer','reflection'].forEach(id => { el(id).value = ''; });
       ['feedback','transfer-feedback','summary'].forEach(id => { el(id).textContent = ''; });
-      ['to-explore','to-review','hint-text'].forEach(id => { el(id).hidden = true; });
+      ['to-explore','to-review','hint-text','prediction-note'].forEach(id => { el(id).hidden = true; });
       el('variation').value = el('variation').defaultValue;
       show(0);
     });
