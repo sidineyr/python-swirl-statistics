@@ -1,0 +1,163 @@
+{
+  "id": "amostragem",
+  "title": "Uma amostra conta toda a história?",
+  "locale": "pt-BR",
+  "intro": "População simulada de 100 tempos de deslocamento, em minutos: 10, 11, ..., 109. Uma posição representa uma pessoa.",
+  "objectives": [
+    "Distinguir população e amostra",
+    "Simular médias amostrais com semente fixa",
+    "Reconhecer variabilidade e viés"
+  ],
+  "setup": "populacao = list(range(10, 110))\nrng = Random(42)\nprimeira = rng.sample(populacao, 5)\nsegunda = rng.sample(populacao, 5)",
+  "steps": [
+    {
+      "type": "info",
+      "text": "Queremos estimar a média da população usando apenas cinco pessoas.\nrange(10, 110) gera os inteiros de 10 a 109. list transforma essa sequência em lista.\nRandom(42) fixa uma semente: repetir o experimento com a mesma semente e versão reproduz os sorteios.\nsample sorteia pessoas sem reposição dentro de cada amostra.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "reflection",
+      "text": "Você espera que duas amostras aleatórias de cinco pessoas tenham sempre a mesma média? Justifique sua previsão.",
+      "rubric": "Compare sua resposta com estes critérios: As pessoas sorteadas podem mudar; portanto as médias podem variar, mesmo sem erro de cálculo.",
+      "feedback_ok": "Você pode consultar esta resposta na exportação."
+    },
+    {
+      "type": "code",
+      "text": "Aqui conhecemos toda a população simulada. Calcule sua média.",
+      "check": {
+        "kind": "number",
+        "value": 59.5
+      },
+      "solution": "mean(populacao)",
+      "hints": [
+        "Use todos os 100 valores.",
+        "Use mean(populacao).",
+        "mean(populacao)\n59,5 minutos é o parâmetro conhecido deste experimento. Em uma pesquisa real ele pode ser desconhecido."
+      ],
+      "feedback_ok": "59,5 minutos é o parâmetro conhecido deste experimento. Em uma pesquisa real ele pode ser desconhecido.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "info",
+      "text": "Veja os sorteios com :explorar e primeira; depois segunda.\nA primeira amostra é [91, 24, 13, 104, 45]. A segunda é [41, 38, 27, 104, 23].\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a média de primeira.",
+      "check": {
+        "kind": "number",
+        "value": 55.4
+      },
+      "solution": "mean(primeira)",
+      "hints": [
+        "A média amostral estima a média da população.",
+        "Use mean(primeira).",
+        "mean(primeira)\nResultado correto. Agora interprete o que ele significa."
+      ],
+      "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a média de segunda.",
+      "check": {
+        "kind": "number",
+        "value": 46.6
+      },
+      "solution": "mean(segunda)",
+      "hints": [
+        "Use a outra lista de sorteados.",
+        "Use mean(segunda).",
+        "mean(segunda)\nAs estimativas 55,4 e 46,6 são diferentes, mesmo com o mesmo método de sorteio."
+      ],
+      "feedback_ok": "As estimativas 55,4 e 46,6 são diferentes, mesmo com o mesmo método de sorteio.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "choice",
+      "text": "Por que essas médias diferem?",
+      "options": [
+        "Uma delas necessariamente contém erro de programação.",
+        "Pessoas diferentes foram sorteadas; estimativas variam entre amostras.",
+        "A média da população mudou."
+      ],
+      "answer": 2,
+      "feedback_ok": "Isso é variabilidade amostral. A população continuou a mesma.",
+      "feedback_wrong": "As listas são amostras diferentes de uma população fixa.",
+      "feedbacks": {},
+      "hints": [
+        "Compare os números e o contexto.",
+        "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
+        "Alternativa 2. Isso é variabilidade amostral. A população continuou a mesma."
+      ]
+    },
+    {
+      "type": "info",
+      "text": "Exemplo resolvido: [mean([1, 2, 3]) for _ in range(3)] cria três resultados.\nVamos repetir 200 sorteios. Em cada repetição, sample seleciona cinco pessoas; entre repetições elas podem reaparecer.\nEsta repetição não é bootstrap: estamos sorteando da população conhecida.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "code",
+      "text": "Crie 200 médias amostrais em medias. Reinicie a semente antes do experimento.\nPode usar uma linha: rng = Random(42); medias = [mean(rng.sample(populacao, 5)) for _ in range(200)]",
+      "check": {
+        "kind": "sample_means",
+        "value": null
+      },
+      "solution": "rng = Random(42); medias = [mean(rng.sample(populacao, 5)) for _ in range(200)]",
+      "hints": [
+        "Cada repetição precisa sortear uma nova amostra de cinco pessoas.",
+        "Use Random(42), range(200) e atribua a lista à variável medias.",
+        "rng = Random(42); medias = [mean(rng.sample(populacao, 5)) for _ in range(200)]\nAs 200 médias estão registradas. Explore min(medias), max(medias) e mean(medias)."
+      ],
+      "feedback_ok": "As 200 médias estão registradas. Explore min(medias), max(medias) e mean(medias).",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "target": "medias"
+    },
+    {
+      "type": "info",
+      "text": "Experimente: :explorar e pstdev(medias). Isso descreve o espalhamento das médias simuladas.\nCompare com 200 amostras maiores: :explorar e rng = Random(42); medias_20 = [mean(rng.sample(populacao, 20)) for _ in range(200)]; pstdev(medias_20).\nAmostras aleatórias maiores tendem a reduzir a variabilidade; não garantem que cada estimativa individual fique mais perto do parâmetro.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "code",
+      "text": "Transferência: calcule a média de uma seleção por conveniência que inclui só as dez primeiras pessoas: populacao[:10].",
+      "check": {
+        "kind": "number",
+        "value": 14.5
+      },
+      "solution": "mean(populacao[:10])",
+      "hints": [
+        "Os valores são de 10 a 19.",
+        "Use mean(populacao[:10]).",
+        "mean(populacao[:10])\n14,5 minutos. Selecionar apenas tempos baixos produz uma estimativa enviesada neste exemplo."
+      ],
+      "feedback_ok": "14,5 minutos. Selecionar apenas tempos baixos produz uma estimativa enviesada neste exemplo.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "choice",
+      "text": "Qual desenho melhora a investigação?",
+      "options": [
+        "Escolher mais pessoas entre as que chegam primeiro resolve todo viés.",
+        "Sortear pessoas de toda a população e investigar quem não respondeu.",
+        "Selecionar apenas quem mora perto para reduzir o desvio padrão."
+      ],
+      "answer": 2,
+      "feedback_ok": "O tamanho da amostra não corrige automaticamente uma seleção enviesada.",
+      "feedback_wrong": "Precisamos pensar em quem pode ser selecionado e em quem ficou de fora.",
+      "feedbacks": {},
+      "hints": [
+        "Compare os números e o contexto.",
+        "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
+        "Alternativa 2. O tamanho da amostra não corrige automaticamente uma seleção enviesada."
+      ]
+    },
+    {
+      "type": "reflection",
+      "text": "Escreva um pequeno relatório: qual parâmetro investigou, quais estimativas encontrou, por que variaram e o que não pode concluir sobre uma escola real.",
+      "rubric": "Compare sua resposta com estes critérios: Média populacional simulada 59,5; primeiras estimativas 55,4 e 46,6. Variabilidade vem dos sorteios. A seleção por conveniência estimou 14,5 e é enviesada aqui. Os dados são simulados; não descrevem uma escola real nem permitem estabelecer causas.",
+      "feedback_ok": "Você pode consultar esta resposta na exportação."
+    }
+  ]
+}

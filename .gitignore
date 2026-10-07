@@ -1,0 +1,30 @@
+# Python e ferramentas
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+# Credenciais e configuração pessoal
+.env
+.env.*
+!.env.example
+credentials*.json
+*.pem
+*.key
+# Progresso, respostas e temporários locais
+.python-swirl/
+*progresso*.json
+*progress*.json
+*respostas*.json
+*answers*.json
+python-swirl-graficos/
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

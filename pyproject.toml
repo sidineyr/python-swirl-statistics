@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-swirl-statistics"
+version = "0.1.0"
+description = "Aprenda estatística praticando em Python"
+requires-python = ">=3.10"
+authors = [{name = "Sidiney Rodrigues"}]
+dependencies = []
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/sidineyr/python-swirl-statistics"
+Issues = "https://github.com/sidineyr/python-swirl-statistics/issues"
+Author = "https://github.com/sidineyr"
+
+[project.scripts]
+python-swirl = "python_swirl.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["python_swirl*"]
+
+[tool.setuptools.package-data]
+python_swirl = ["lessons/*.json"]

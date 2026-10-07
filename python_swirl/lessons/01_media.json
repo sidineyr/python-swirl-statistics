@@ -1,0 +1,142 @@
+{
+  "id": "media",
+  "title": "O que uma média esconde?",
+  "locale": "pt-BR",
+  "intro": "Tempos simulados de deslocamento até uma escola, em minutos. Cada número representa uma pessoa. Não são dados de uma escola real.",
+  "objectives": [
+    "Calcular média e mediana",
+    "Investigar um valor extremo",
+    "Escolher uma medida com justificativa"
+  ],
+  "setup": "tempos = [10, 12, 14, 16, 18]\ntempos_com_atraso = [10, 12, 14, 16, 88]\nnovos_tempos = [20, 22, 24, 26, 108]",
+  "steps": [
+    {
+      "type": "info",
+      "text": "Pergunta: quanto tempo costuma levar o deslocamento?\nDados: tempos = [10, 12, 14, 16, 18]. Os colchetes criam uma lista.\nUma pessoa passou a levar 88 minutos: [10, 12, 14, 16, 88].\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "reflection",
+      "text": "Antes de calcular: o que você acha que vai acontecer com a média e a mediana quando 18 for substituído por 88?",
+      "rubric": "Compare sua resposta com estes critérios: Registre uma previsão para cada medida. Você retomará essa previsão após calcular.",
+      "feedback_ok": "Você pode consultar esta resposta na exportação."
+    },
+    {
+      "type": "info",
+      "text": "Média soma os tempos e divide pelo número de pessoas. Mediana é o valor central da lista ordenada.\nExemplo resolvido: mean([2, 4, 6]) resulta em 4. mean e median já estão disponíveis nesta lição.\nDigite apenas código, sem copiar o sinal >.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a média de tempos. Digite mean(tempos) ou outra expressão equivalente.",
+      "check": {
+        "kind": "number",
+        "value": 14
+      },
+      "solution": "mean(tempos)",
+      "hints": [
+        "Some os cinco tempos e divida por cinco.",
+        "Use mean(tempos) ou sum(tempos) / len(tempos).",
+        "mean(tempos)\nA média é 14 minutos; nesta lista simétrica ela coincide com a mediana."
+      ],
+      "feedback_ok": "A média é 14 minutos; nesta lista simétrica ela coincide com a mediana.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a média de tempos_com_atraso.",
+      "check": {
+        "kind": "number",
+        "value": 28
+      },
+      "solution": "mean(tempos_com_atraso)",
+      "hints": [
+        "O tempo de 88 minutos participa da soma.",
+        "A lista se chama tempos_com_atraso.",
+        "mean(tempos_com_atraso)\nA média subiu para 28 minutos, embora quatro dos cinco tempos sejam menores que 20."
+      ],
+      "feedback_ok": "A média subiu para 28 minutos, embora quatro dos cinco tempos sejam menores que 20.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a mediana de tempos_com_atraso.",
+      "check": {
+        "kind": "number",
+        "value": 14
+      },
+      "solution": "median(tempos_com_atraso)",
+      "hints": [
+        "Na lista ordenada de cinco valores, procure o terceiro.",
+        "Use median(tempos_com_atraso).",
+        "median(tempos_com_atraso)\nA mediana continua em 14 minutos. A posição central não mudou."
+      ],
+      "feedback_ok": "A mediana continua em 14 minutos. A posição central não mudou.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "choice",
+      "text": "Qual afirmação descreve melhor estes cinco deslocamentos?",
+      "options": [
+        "A maioria leva 28 minutos porque essa é a média.",
+        "A mediana é 14; o deslocamento de 88 minutos eleva a média para 28.",
+        "O tempo de 88 deve ser apagado automaticamente."
+      ],
+      "answer": 2,
+      "feedback_ok": "Uma medida resume os dados, mas não substitui o contexto.",
+      "feedback_wrong": "Reveja as listas: média não é necessariamente o tempo da maioria.",
+      "feedbacks": {
+        "1": "A média é um resumo; nenhum tempo desta lista é 28.",
+        "3": "Um valor extremo pode ser real. Investigue antes de removê-lo."
+      },
+      "hints": [
+        "Compare os números e o contexto.",
+        "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
+        "Alternativa 2. Uma medida resume os dados, mas não substitui o contexto."
+      ]
+    },
+    {
+      "type": "info",
+      "text": "Experimente sem avançar: :explorar e depois mean([10, 12, 14, 16, 188]).\nEm seguida use :explorar e median([10, 12, 14, 16, 188]).\nAltere o último valor e compare as medidas.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular."
+    },
+    {
+      "type": "code",
+      "text": "Transferência: calcule a média de novos_tempos = [20, 22, 24, 26, 108].",
+      "check": {
+        "kind": "number",
+        "value": 40
+      },
+      "solution": "sum(novos_tempos) / len(novos_tempos)",
+      "hints": [
+        "A média considera todos os valores.",
+        "Você pode usar mean ou dividir a soma pela quantidade.",
+        "sum(novos_tempos) / len(novos_tempos)\nResultado correto. Agora interprete o que ele significa."
+      ],
+      "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "code",
+      "text": "Calcule a mediana de novos_tempos.",
+      "check": {
+        "kind": "number",
+        "value": 24
+      },
+      "solution": "median(novos_tempos)",
+      "hints": [
+        "Ordene e localize o centro.",
+        "Use median(novos_tempos).",
+        "median(novos_tempos)\nResultado correto. Agora interprete o que ele significa."
+      ],
+      "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+    },
+    {
+      "type": "reflection",
+      "text": "Retome sua previsão. Qual medida usaria para comunicar o tempo típico do segundo grupo? Explique com números e cite uma limitação.",
+      "rubric": "Compare sua resposta com estes critérios: Uma resposta fundamentada pode usar mediana 24 para o centro e mencionar média 40 e o tempo 108. A média também é útil para totais ou recursos. Estes cinco casos simulados não permitem generalizar para todos os estudantes.",
+      "feedback_ok": "Você pode consultar esta resposta na exportação."
+    }
+  ]
+}
