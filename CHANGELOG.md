@@ -22,3 +22,9 @@
 - Guia de contribuição e modelos de issues.
 
 Esta versão não inclui tutoria com IA, certificado, curso completo de inferência, publicação no PyPI ou evidência de eficácia pedagógica.
+
+### Preparação da apresentação web e busca
+
+- Acrescenta apresentação estática, lição sobre média/mediana, privacidade, metadados e sitemap.
+- Inclui validação local, workflow manual de GitHub Pages e documentação/prompt para Google e Bing.
+- Publicação, submissão e indexação não verificadas; anúncios não ativados.

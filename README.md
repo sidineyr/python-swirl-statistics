@@ -77,3 +77,7 @@ Inspirado no [swirl do R](https://swirlstats.com/) e em seu [repositório origin
 O Python Swirl é um projeto educacional gratuito. Caso o projeto gere lucro, o idealizador declara que esse lucro será destinado ao **[Hospital Pequeno Príncipe](https://pequenoprincipe.org.br/)**. Esse compromisso não representa comprovação de doações realizadas, parceria ou endosso do hospital. Para apoio direto, consulte [os canais oficiais da instituição](https://pequenoprincipe.org.br/doadores/apoie-o-pequeno-principe/).
 
 Código original: [MIT](LICENSE). Conteúdo educacional e dados simulados originais: [CC BY 4.0](LICENSE.md). Dados pessoais e respostas dos estudantes não estão abrangidos por essa licença.
+
+## Apresentação web e indexação
+
+Os arquivos da apresentação pública estão em `site/`, incluindo uma lição de leitura, metadados e sitemap. A publicação e a indexação ainda não foram verificadas. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages pode ser executado manualmente após configurar a hospedagem.
