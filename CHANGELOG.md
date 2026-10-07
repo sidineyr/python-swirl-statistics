@@ -1,5 +1,11 @@
 # Histórico de alterações
 
+## Lançamento público · 2026-10-07
+
+- Anúncio da versão 0.1 e apresentação pública no README.
+- About preenchido com descrição em português e oito tópicos.
+- Identificadores reais do AdSense, fragmento HTML e modelo ads.txt incluídos para futura integração web; nenhum anúncio ativo nesta versão.
+
 ## 0.1.0 · 2026-10-07
 
 - Curso local no console Python, em português brasileiro, sem dependências externas para estudar.

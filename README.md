@@ -2,6 +2,8 @@
 
 **Aprenda estatística praticando em Python.**
 
+**Lançamento público · 7 de outubro de 2026:** a versão 0.1 está disponível para estudar, adaptar e contribuir. Leia o [anúncio do projeto](docs/LANCAMENTO.md).
+
 Curso interativo gratuito para iniciantes. Você faz uma previsão, calcula em Python, interpreta o resultado e aplica a ideia a outros dados. A compreensão estatística orienta cada atividade.
 
 **Idealização e direção pedagógica: [Sidiney Rodrigues, pedagogo](https://github.com/sidineyr).**
@@ -60,11 +62,11 @@ Respostas abertas não recebem nota automática. Para exportar suas respostas, u
 - [Currículo, pesquisa e arquitetura](docs/PROJETO.md).
 - [Criar lições](docs/AUTORIA.md) e [contribuir](CONTRIBUTING.md).
 - [Avaliação pedagógica](docs/AVALIACAO.md), [validação técnica](docs/VALIDACAO.md) e [histórico](CHANGELOG.md).
-- [Créditos](CREDITS.md) e [licenças](LICENSE.md).
+- [Créditos](CREDITS.md), [licenças](LICENSE.md) e [preparação para AdSense](docs/ADSENSE.md).
 
 ## Estado e limites
 
-A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Dez testes técnicos passaram em Linux/Python 3.12.14; testes com estudantes e auditoria de acessibilidade ainda precisam ser realizados. A matriz de Linux e Windows está configurada em [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para saber quais ambientes efetivamente passaram.
+A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Dez testes técnicos passaram em Linux/Python 3.12.14; testes com estudantes e auditoria de acessibilidade ainda precisam ser realizados. A matriz técnica com Python 3.10 e 3.12 passou em Linux e Windows no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para o alcance da validação. Isso não substitui a avaliação com estudantes.
 
 O código do estudante executa localmente, sem isolamento, e é reexecutado na retomada. Use código e lições de confiança. Consulte [o guia de uso](docs/USO.md) para detalhes; este executor não deve ser exposto como serviço web.
 
