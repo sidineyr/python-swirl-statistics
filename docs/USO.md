@@ -9,7 +9,7 @@ Inspirado no [swirl do R](https://swirlstats.com/), sem vínculo oficial. As li�
 ## Comece aqui
 
 1. Instale Python 3.10 ou superior, se ainda não estiver instalado.
-2. Extraia este projeto e abra um terminal dentro da pasta que contém este README.
+2. Extraia este projeto e abra um terminal na raiz do projeto, onde está o README.md.
 3. Execute:
 
 ```sh
@@ -80,4 +80,4 @@ Opcionalmente, em um ambiente virtual, instale o pacote com `python -m pip insta
 
 ## Limitações iniciais
 
-Protótipo executável, com validação técnica. Ainda sem testes com estudantes, auditoria com leitores de tela ou validação em Windows e macOS. O currículo completo está planejado; apenas as três lições acima estão implementadas. Não há tutoria com IA, certificado, publicação no PyPI ; consulte o repositório para a versão publicada.
+Protótipo executável, com validação técnica. Ainda sem testes com estudantes, auditoria com leitores de tela ou validação em macOS e Windows 10 pessoal. A matriz técnica de CI passou em Linux e Windows com Python 3.10 e 3.12; veja VALIDACAO.md. O currículo completo está planejado; apenas as três lições acima estão implementadas. Não há tutoria com IA, certificado, publicação no PyPI; consulte o repositório para a versão publicada.

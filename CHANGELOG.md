@@ -12,7 +12,7 @@
 - Dez testes automatizados, guias de instalação/autoria e protocolo de avaliação pedagógica.
 - Licença MIT para código e CC BY 4.0 para conteúdo educacional original e dados simulados.
 - Créditos, perfil do idealizador e declaração de destinação de eventuais lucros ao Hospital Pequeno Príncipe.
-- GitHub Actions configurado para Python 3.10 e 3.12, em Linux e Windows; resultados dependem da execução dos jobs.
+- GitHub Actions validado com quatro jobs em Python 3.10 e 3.12, Linux e Windows; detalhes e execução registrada em docs/VALIDACAO.md.
 - Guia de contribuição e modelos de issues.
 
 Esta versão não inclui tutoria com IA, certificado, curso completo de inferência, publicação no PyPI ou evidência de eficácia pedagógica.

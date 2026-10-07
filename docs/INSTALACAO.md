@@ -24,7 +24,7 @@ macOS, com Python já instalado:
 python3 -m python_swirl
 ```
 
-Requer Python 3.10 ou superior. Os comandos de Windows e macOS são orientações de compatibilidade, ainda não testes realizados nesses sistemas. A execução e os testes desta entrega foram feitos em Linux; veja VALIDACAO.md para versão exata.
+Requer Python 3.10 ou superior. O módulo, os testes e a instalação foram validados no CI em Linux e Windows com Python 3.10 e 3.12. O uso do launcher py no Windows 10 pessoal e os comandos de macOS ainda precisam de verificação nesses ambientes. Veja VALIDACAO.md para o alcance exato dos testes.
 
 Para usar dentro de uma sessão Python local:
 

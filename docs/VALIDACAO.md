@@ -1,6 +1,6 @@
 # Validação da versão 0.1
 
-Data: 7 de outubro de 2026. Ambiente: Linux, Python 3.12.14.
+Data: 7 de outubro de 2026. Ambiente local: Linux, Python 3.12.14. Validação complementar em GitHub Actions: Linux e Windows, Python 3.10 e 3.12.
 
 ## Verificações realizadas
 
@@ -26,7 +26,7 @@ O teste de percurso usa respostas preparadas para verificar o funcionamento; nã
 
 ## Limitações presentes
 
-- Sem testes com estudantes, Windows, macOS ou diferentes versões de Python.
+- Sem testes com estudantes, macOS ou Windows 10 em computador pessoal. A validação Windows em CI usa o runner windows-latest, não demonstra usabilidade no computador do estudante.
 - Interface principal no console, com gráficos em SVG abertos separadamente.
 - Três lições implementadas; o restante do currículo é planejamento.
 - Sem leitor de tela auditado, internacionalização completa ou revisão espaçada agendada.
@@ -34,9 +34,10 @@ O teste de percurso usa respostas preparadas para verificar o funcionamento; nã
 - Código local arbitrário não é isolado. A retomada repete códigos registrados.
 - Reiniciar uma lição remove suas respostas daquele arquivo de progresso; exporte antes se desejar preservá-las.
 - Não há concorrência entre sessões, migração automática de lições alteradas ou validação completa de JSON de terceiros.
-- Dependência da sequência pseudoaleatória para resultados de referência da lição 3; a versão testada é Python 3.12.14.
+- Dependência da sequência pseudoaleatória para resultados de referência da lição 3; verificada localmente em Python 3.12.14 e na matriz de CI Python 3.10/3.12.
 - Sem publicação no PyPI ou serviço web; sem participantes ou resultados educacionais inventados.
-- Os testes em GitHub Actions serão reportados somente após execução dos jobs.
+- Resultado verificado no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions/runs/37679799986): quatro jobs aprovados (Linux/Windows × Python 3.10/3.12), incluindo os dez testes, execução do módulo, instalação e carregamento dos JSONs.
+- A primeira execução encontrou uma leitura sem UTF-8 explícito no teste do SVG em Windows; o teste foi corrigido e a matriz passou. O arquivo SVG já era gravado em UTF-8.
 
 ## Próximo passo prioritário
 
