@@ -2,7 +2,12 @@
 
 ## Sem instalar pacotes
 
-Extraia o ZIP. Abra um terminal na pasta `python-swirl-statistics`, onde estão README.md e a pasta python_swirl.
+1. [Baixe o projeto atual em ZIP](https://github.com/sidineyr/python-swirl-statistics/archive/refs/heads/main.zip).
+2. Localize o arquivo em Downloads e extraia. Abra a pasta `python-swirl-statistics-main` que contém README.md, pyproject.toml e a pasta python_swirl. Não execute de dentro do ZIP.
+3. Windows: no Explorador, abra essa pasta, clique na barra de endereço, digite `powershell` e pressione Enter. Linux: no gerenciador de arquivos, escolha “Abrir no terminal”, quando disponível; ou use `cd ~/Downloads/python-swirl-statistics-main` e ajuste o caminho.
+4. Confira a versão e inicie com os comandos abaixo. Se precisar instalar Python, use [o site oficial](https://www.python.org/downloads/) no Windows ou os canais de sua distribuição Linux.
+
+Também há um [guia visual na web](https://sidineyr.github.io/python-swirl-statistics/instalacao.html).
 
 Windows:
 
@@ -78,3 +83,5 @@ O arquivo padrão está na pasta `.python-swirl` dentro da sua pasta pessoal. Pa
 - Gráfico não abre automaticamente: copie o caminho impresso e abra o SVG no navegador. A descrição textual permanece no console.
 
 Não há limite de tempo imposto às tarefas. Nunca execute duas sessões com o mesmo arquivo de progresso ao mesmo tempo.
+
+Se aparecer `No module named python_swirl`, confira se o terminal está na pasta do README e de python_swirl. Se `py` não existir no Windows, confira `python --version` e use `python -m python_swirl` somente se a versão for compatível.

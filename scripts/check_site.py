@@ -17,8 +17,11 @@ class Page(HTMLParser):
         self.headings = 0
         self.json_blocks = []
         self.in_json = False
+        self.ids = set()
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if attrs.get("id"): self.ids.add(attrs["id"])
+        if attrs.get("src"): self.links.append(attrs["src"])
         if tag == "title": self.titles += 1
         if tag == "h1": self.headings += 1
         if tag == "link" and attrs.get("rel") == "canonical": self.canonical.append(attrs["href"])
@@ -34,7 +37,7 @@ class Page(HTMLParser):
         if tag == "script": self.in_json = False
 
 pages = sorted(ROOT.glob("*.html"))
-assert len(pages) == 3
+assert len(pages) == 6
 urls = []
 for path in pages:
     parsed = Page()
@@ -47,9 +50,15 @@ for path in pages:
         assert data["url"] == parsed.canonical[0]
     for href in parsed.links:
         if not urlparse(href).scheme:
-            assert (path.parent / href.split("#")[0]).is_file(), (path.name, href)
+            parsed_url = urlparse(href)
+            target = path.parent / parsed_url.path if parsed_url.path else path
+            assert target.is_file(), (path.name, href)
+            if parsed_url.fragment:
+                target_page = Page()
+                target_page.feed(target.read_text(encoding="utf-8"))
+                assert parsed_url.fragment in target_page.ids, (path.name, href)
     urls.extend(parsed.canonical)
 sitemap = ET.parse(ROOT / "sitemap.xml")
 locations = [node.text for node in sitemap.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
 assert sorted(locations) == sorted(urls)
-print("OK: 3 pages, canonical URLs, JSON-LD, local links and sitemap")
+print("OK: 6 pages, canonical URLs, JSON-LD, local links and sitemap")

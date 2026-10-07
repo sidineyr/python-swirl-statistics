@@ -1,5 +1,15 @@
 # Histórico de alterações
 
+## Revisão 2 · 2026-10-07
+
+- Referência da simulação independente de dados alteráveis; rejeição de alvo antigo em entrada sem relação.
+- Expressão, print de um único valor e atribuição final; precisão declarada nos desvios populacionais.
+- Exploração separada, restauração do contexto, confirmação de reinício e leitura/revisão de reflexões.
+- Três etapas de apoio em amostragem com migração específica que preserva respostas anteriores.
+- Escala comum opcional nos SVGs; rótulos em português e transições pedagógicas revistas.
+- Três prévias conceituais web com tentativa e feedback, entrada e instalação claras, link de salto, foco visível e sitemap atualizado.
+- Dez testes de regressão adicionais e testes dos cálculos/entradas web; protocolo do piloto documentado.
+
 ## Lançamento público · 2026-10-07
 
 - Anúncio da versão 0.1 e apresentação pública no README.

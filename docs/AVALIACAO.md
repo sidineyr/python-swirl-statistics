@@ -39,3 +39,21 @@ Exemplos de atividades equivalentes:
 Descreva número de participantes, perfil necessário à interpretação, tarefa, ajuda utilizada e evidências observadas. Um piloto pequeno serve para encontrar problemas, sem demonstrar eficácia generalizável. Satisfação, tempo e conclusão são dados de experiência; aprendizado requer evidência de interpretação e transferência.
 
 Priorize revisões por impacto: bloqueios para iniciar, instruções incompreendidas, feedback que reforça equívoco e só depois ajustes de apresentação. Teste com leitor de tela e teclado antes de afirmar acessibilidade validada. Proponha uma revisão em outra sessão após alguns dias para avaliar retenção; não há agenda automática implementada.
+
+## Piloto exploratório da revisão 2 — ainda não realizado
+
+Convide cinco adultos iniciantes, com diferentes familiaridades com Python, sem tratar essa amostra pequena como prova de eficácia. Participação voluntária; explicar objetivo, possibilidade de desistir e destino das anotações. Não recolher dados identificadores desnecessários nem publicar respostas individuais no GitHub. Guardar registros fora do repositório; combinar previamente permissão para qualquer gravação.
+
+Tarefas, sem demonstrar a solução antes da tentativa:
+
+1. Encontre no site a atividade de média e mediana e explique onde ela executa.
+2. Registre uma previsão, tente o cálculo, leia o feedback e explore outro atraso.
+3. Explique o novo grupo com suas palavras; compare média e mediana e cite um limite.
+4. Encontre o download e inicie a lição 1 no computador. Observe onde precisa de ajuda.
+5. Produza um erro de escrita, use uma dica e recupere dados alterados com :restaurar.
+6. Pause e retome; revise e edite uma reflexão. Encontre a lição seguinte.
+7. Compare dispersão com escala comum e explique por que aumentar uma seleção enviesada não resolve o problema.
+
+Para cada tarefa, registrar: conclusão sem/com ajuda, ajuda necessária, ponto de hesitação ou abandono e explicação do participante. Tempo observado é descritivo, não limite imposto. Não avaliar por comprimento da resposta ou palavras-chave. Examinar se a interpretação se mantém em um caso novo. Revisar instruções conforme os obstáculos recorrentes e repetir a observação após mudanças.
+
+Entregável do piloto: relato agregado, versões examinadas, obstáculos, mudanças propostas e limitações; sem nota automática, promessa de certificação ou alegação causal de eficácia. Até a realização, os resultados são somente inspeção especializada e testes técnicos.

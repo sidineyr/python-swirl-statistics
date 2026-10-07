@@ -1,44 +1,19 @@
-# Validação da versão 0.1
+# Validação da revisão 2
 
-Data: 7 de outubro de 2026. Ambiente local: Linux, Python 3.12.14. Validação complementar em GitHub Actions: Linux e Windows, Python 3.10 e 3.12.
+Data: 7 de outubro de 2026. Ambiente local: Linux, Python 3.12.14.
 
-## Verificações realizadas
+- `python3 -m unittest discover -s tests -v`: 20 testes aprovados, incluindo percurso integral real da CLI, pausa/retomada, print/atribuição, população adulterada, alvo antigo, laço equivalente, precisão declarada, escala comum, revisão de reflexão e migração de progresso antigo.
+- `node scripts/test_activities.cjs`: cálculos independentes e formatos de entrada das três atividades web aprovados.
+- `node --check site/activities.js`: sintaxe válida.
+- `python3 scripts/check_site.py`: seis páginas, canonical, JSON-LD, links/âncoras/recursos locais e sitemap aprovados.
+- Instalação em pasta temporária e carregamento dos três JSONs fora do projeto: verificado localmente com instalação sem dependências em /tmp, fora da pasta do projeto; JSONs e 11/13/16 etapas presentes. A matriz CI repete a instalação em todos os jobs.
 
-`python3 -m unittest discover -s tests -v`: **10 testes aprovados**.
+A suíte compara desvios com fórmula independente, e não apenas solução e gabarito do mesmo JSON. Testes de interface preparados verificam comportamento, não aprendizagem. A migração específica da lição 3 preserva respostas e solicita as etapas novas; não há migração genérica de qualquer curso.
 
-| Verificação | Resultado |
-| --- | --- |
-| Soluções de referência de todas as atividades executáveis | Passaram |
-| Percurso de interação das três lições com entrada simulada | Concluiu todas as etapas |
-| Código equivalente e números incorretos | Aceita equivalentes e rejeita incorretos, bool e NaN |
-| Cálculos independentes de média e dispersão | Valores conferidos |
-| Lista constante falsificando simulação | Rejeitada |
-| Estado das listas após retomada | Preservado por reexecução |
-| Pausa, dica e índice salvo | Funcionaram |
-| Reinício e tentativa sem avanço | Funcionaram |
-| Comando que altera dados e termina com exceção | Reconstrói variáveis anteriores |
-| Progresso com JSON inválido | Preservado, sem sobrescrita |
-| SVG com descrição e caracteres escapados | XML válido, descrição presente |
+A matriz Linux/Windows × Python 3.10/3.12 executa testes, módulo, apresentação web, instalação e carregamento dos JSONs. O estado de cada versão está nos [jobs do GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); a validação da versão anterior não é prova da revisão atual. Não confundir Windows no runner com experiência pessoal de instalação.
 
-Instalação verificada: `python3 -m pip install --no-build-isolation --no-deps --target <pasta-temporaria> .`. O wheel foi construído e instalado com sucesso. Fora da pasta do projeto, o módulo instalado listou as três lições, confirmando inclusão dos JSONs. A instalação usou ferramentas de empacotamento já disponíveis; não comprovou instalação em máquina sem setuptools.
+Prévia conceitual web: JavaScript local; sem execução de Python, anúncios, telemetria ou armazenamento persistente de respostas. Inspeção por teclado, zoom e dos três percursos deve ser registrada após publicação. Leitores de tela e dispositivos móveis reais ainda não foram auditados. Não se declara conformidade WCAG.
 
-O teste de percurso usa respostas preparadas para verificar o funcionamento; não mede aprendizagem nem usabilidade humana. Cálculos e casos negativos foram verificados separadamente. A descrição SVG foi testada estruturalmente; não houve auditoria visual ou com leitor de tela.
+Código Python local arbitrário não é isolado. Retomada reexecuta códigos registrados; efeitos externos não são revertidos. A exploração usa namespace separado, mas seus comandos ainda têm os mesmos privilégios locais e podem produzir efeitos externos. Respostas abertas usam autoavaliação e revisão humana.
 
-## Limitações presentes
-
-- Sem testes com estudantes, macOS ou Windows 10 em computador pessoal. A validação Windows em CI usa o runner windows-latest, não demonstra usabilidade no computador do estudante.
-- Interface principal no console, com gráficos em SVG abertos separadamente.
-- Três lições implementadas; o restante do currículo é planejamento.
-- Sem leitor de tela auditado, internacionalização completa ou revisão espaçada agendada.
-- Respostas abertas usam autoavaliação; não recebem avaliação automática de qualidade.
-- Código local arbitrário não é isolado. A retomada repete códigos registrados.
-- Reiniciar uma lição remove suas respostas daquele arquivo de progresso; exporte antes se desejar preservá-las.
-- Não há concorrência entre sessões, migração automática de lições alteradas ou validação completa de JSON de terceiros.
-- Dependência da sequência pseudoaleatória para resultados de referência da lição 3; verificada localmente em Python 3.12.14 e na matriz de CI Python 3.10/3.12.
-- Sem publicação no PyPI ou serviço web; sem participantes ou resultados educacionais inventados.
-- Resultado verificado no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions/runs/37679799986): quatro jobs aprovados (Linux/Windows × Python 3.10/3.12), incluindo os dez testes, execução do módulo, instalação e carregamento dos JSONs.
-- A primeira execução encontrou uma leitura sem UTF-8 explícito no teste do SVG em Windows; o teste foi corrigido e a matriz passou. O arquivo SVG já era gravado em UTF-8.
-
-## Próximo passo prioritário
-
-Realizar o piloto de AVALIACAO.md, começando pela primeira lição no Windows. Revisar instruções e feedback conforme dificuldades observadas antes de ampliar o currículo.
+Piloto com estudantes, Windows pessoal, macOS, concorrência entre sessões e validação completa de lições externas permanecem pendentes. Protocolo em [AVALIACAO.md](AVALIACAO.md). Veja [as correções e evidências](CORRECOES-AUDITORIA.md).
