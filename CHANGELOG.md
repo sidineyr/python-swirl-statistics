@@ -28,3 +28,10 @@ Esta versão não inclui tutoria com IA, certificado, curso completo de inferên
 - Acrescenta apresentação estática, lição sobre média/mediana, privacidade, metadados e sitemap.
 - Inclui validação local, workflow manual de GitHub Pages e documentação/prompt para Google e Bing.
 - Publicação, submissão e indexação não verificadas; anúncios não ativados.
+
+### Publicação e submissão ao Google — 7 de outubro de 2026
+
+- Publica a apresentação no GitHub Pages e verifica páginas e sitemap por HTTP 200.
+- Atualiza Website no About e habilita publicação de alterações públicas na branch main.
+- Envia sitemap na propriedade Google existente e solicita indexação da página inicial e da lição.
+- Registra leitura de sitemap ainda não confirmada, indexação ainda não observada e bloqueio de autenticação Bing.

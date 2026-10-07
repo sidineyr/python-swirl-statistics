@@ -15,11 +15,11 @@ O identificador foi recuperado de contexto anterior da conta; não foi inventado
 | [adsense-head.html](../monetization/adsense-head.html) | Fragmento HTML com metatag e código de integração para uma página web |
 | [ads.txt.example](../monetization/ads.txt.example) | Declaração a adaptar e publicar como ads.txt no local exigido pelo domínio |
 
-O curso atual roda no console Python. O GitHub não executa scripts de publicidade inseridos no README. Portanto, esses arquivos **não ativam anúncios no curso nem na página github.com do repositório**. Não há website do projeto configurado ou site aprovado confirmado nesta entrega.
+O curso atual roda no console Python. O GitHub não executa scripts de publicidade inseridos no README. Portanto, esses arquivos **não ativam anúncios no curso nem na página github.com do repositório**. A apresentação web está publicada; ainda não há aprovação AdSense confirmada.
 
 ## Próxima integração necessária
 
-1. Definir e publicar uma página web do projeto sob um endereço administrado pelo idealizador.
+1. Usar a apresentação publicada indicada abaixo e conferir o endereço no painel.
 2. Adicionar o site no AdSense e verificar a configuração e o status no painel.
 3. Integrar o fragmento HTML no head da página, respeitando requisitos aplicáveis de privacidade, consentimento e políticas de anúncios.
 4. Publicar a declaração ads.txt no diretório de domínio exigido pelo AdSense, preservando entradas existentes. Em sites hospedados num subcaminho, não presuma que um arquivo dentro do repositório atende à raiz do domínio.
@@ -36,3 +36,7 @@ O status em adsense.json permanece `prepared-not-connected`, com `ads_enabled: f
 AdSense é a ferramenta de monetização de um site com anúncios. Sua inclusão não cria campanha no Google Ads nem usa crédito de publicidade.
 
 O compromisso de destinar eventuais lucros ao Hospital Pequeno Príncipe está em [CREDITS.md](../CREDITS.md). O código de publisher não torna o hospital titular da conta ou parceiro do projeto.
+
+## Site publicado
+
+A apresentação está publicada em https://sidineyr.github.io/python-swirl-statistics/ desde 7 de outubro de 2026. O endereço foi registrado na configuração preparada. Isso não confirma cadastro ou aprovação do site no AdSense: anúncios e scripts publicitários permanecem desativados.

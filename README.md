@@ -80,4 +80,4 @@ Código original: [MIT](LICENSE). Conteúdo educacional e dados simulados origin
 
 ## Apresentação web e indexação
 
-Os arquivos da apresentação pública estão em `site/`, incluindo uma lição de leitura, metadados e sitemap. A publicação e a indexação ainda não foram verificadas. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages pode ser executado manualmente após configurar a hospedagem.
+A [apresentação pública](https://sidineyr.github.io/python-swirl-statistics/) está publicada no GitHub Pages, incluindo uma lição de leitura, metadados e [sitemap](https://sidineyr.github.io/python-swirl-statistics/sitemap.xml). A publicação foi verificada em 7 de outubro de 2026. O sitemap foi enviado ao Google e a indexação da página inicial e da lição foi solicitada; a presença no índice ainda não foi confirmada. O Bing permanece pendente por bloqueio na autenticação. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages publica alterações em `site/` na branch main e também pode ser executado manualmente.
