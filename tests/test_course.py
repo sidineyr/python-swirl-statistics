@@ -117,10 +117,10 @@ class CourseTests(unittest.TestCase):
             distribution([6,7,7,7,8],'Turma <A>')
         target=Path(out.getvalue().split('Gráfico de pontos salvo em: ')[1].split(' (abra')[0])
         from xml.etree import ElementTree
-        parsed=ElementTree.fromstring(target.read_text())
+        parsed=ElementTree.fromstring(target.read_text(encoding='utf-8'))
         self.assertEqual(parsed.attrib['role'],'img')
-        self.assertIn('valor 7: 3 ocorrência(s)',target.read_text())
-        self.assertIn('&lt;A&gt;',target.read_text())
+        self.assertIn('valor 7: 3 ocorrência(s)',target.read_text(encoding='utf-8'))
+        self.assertIn('&lt;A&gt;',target.read_text(encoding='utf-8'))
         target.unlink()
 
 
