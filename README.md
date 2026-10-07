@@ -8,9 +8,14 @@ Curso interativo gratuito para iniciantes. Você faz uma previsão, calcula em P
 
 **Idealização e direção pedagógica: [Sidiney Rodrigues, pedagogo](https://github.com/sidineyr).**
 
+## Escolha como começar
+
+- [Experimente os três temas no navegador](https://sidineyr.github.io/python-swirl-statistics/): prévias conceituais com tentativa, feedback e exploração. Cálculos em JavaScript; não executam Python.
+- [Baixe e faça o curso com Python no computador](https://sidineyr.github.io/python-swirl-statistics/instalacao.html): requisitos e passos para Windows e Linux.
+
 ## Comece em poucos passos
 
-Instale Python 3.10 ou superior, baixe ou clone o repositório e abra o terminal na pasta do README. Não é necessário instalar bibliotecas para estudar.
+Instale Python 3.10 ou superior, [baixe o ZIP atual](https://github.com/sidineyr/python-swirl-statistics/archive/refs/heads/main.zip) ou clone o repositório e abra o terminal na pasta do README. Não é necessário instalar bibliotecas para estudar.
 
 Windows:
 
@@ -48,11 +53,13 @@ Dados simulados, linguagem em português e respostas abertas com critérios de a
 ## Ajuda e retomada
 
 - `:dica`: apoio progressivo, chegando a uma solução comentada.
-- `:explorar`: experimentar Python sem avançar.
+- `:explorar`: experimentar Python em contexto separado, sem avançar ou alterar a resposta.
 - `:repetir`: reler a etapa.
 - `:bloco`: escrever várias linhas; encerrar com `.` em uma linha própria.
 - `:sair`: pausar; escolha a mesma lição na próxima execução para retomar.
-- `:reiniciar`: refazer a lição, removendo o progresso dela.
+- `:restaurar`: recuperar os dados originais sem apagar respostas.
+- `:revisar` e `:editar`: ler e revisar suas reflexões, mantendo o histórico.
+- `:reiniciar`: refazer a lição após confirmação explícita, removendo o progresso dela.
 
 Respostas abertas não recebem nota automática. Para exportar suas respostas, use `python -m python_swirl --exportar minhas-respostas.json`. Os gráficos são SVGs locais com descrição textual; o curso informa onde abri-los.
 
@@ -66,7 +73,7 @@ Respostas abertas não recebem nota automática. Para exportar suas respostas, u
 
 ## Estado e limites
 
-A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Dez testes técnicos passaram em Linux/Python 3.12.14; testes com estudantes e auditoria de acessibilidade ainda precisam ser realizados. A matriz técnica com Python 3.10 e 3.12 passou em Linux e Windows no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para o alcance da validação. Isso não substitui a avaliação com estudantes.
+A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Vinte testes técnicos passaram localmente em Linux/Python 3.12.14, incluindo regressões da auditoria e execução real da CLI. O piloto com estudantes, leitores de tela e dispositivos móveis reais ainda precisa ser realizado. A matriz técnica anterior com Python 3.10 e 3.12 passou em Linux e Windows; cada atualização executa novamente esses jobs no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para o alcance da validação. Isso não substitui a avaliação com estudantes.
 
 O código do estudante executa localmente, sem isolamento, e é reexecutado na retomada. Use código e lições de confiança. Consulte [o guia de uso](docs/USO.md) para detalhes; este executor não deve ser exposto como serviço web.
 
@@ -80,4 +87,6 @@ Código original: [MIT](LICENSE). Conteúdo educacional e dados simulados origin
 
 ## Apresentação web e indexação
 
-A [apresentação pública](https://sidineyr.github.io/python-swirl-statistics/) está publicada no GitHub Pages, incluindo uma lição de leitura, metadados e [sitemap](https://sidineyr.github.io/python-swirl-statistics/sitemap.xml). A publicação foi verificada em 7 de outubro de 2026. O sitemap foi enviado ao Google e a indexação da página inicial e da lição foi solicitada; a presença no índice ainda não foi confirmada. O Bing permanece pendente por bloqueio na autenticação. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages publica alterações em `site/` na branch main e também pode ser executado manualmente.
+A [apresentação pública](https://sidineyr.github.io/python-swirl-statistics/) está publicada no GitHub Pages, incluindo três prévias conceituais guiadas, instalação, metadados e [sitemap](https://sidineyr.github.io/python-swirl-statistics/sitemap.xml). A publicação foi verificada em 7 de outubro de 2026. O sitemap foi enviado ao Google e a indexação da página inicial e da lição foi solicitada; a presença no índice ainda não foi confirmada. O Bing permanece pendente por bloqueio na autenticação. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages publica alterações em `site/` na branch main e também pode ser executado manualmente.
+
+A revisão 2 preserva respostas antigas e retoma a lição 3 nas etapas novas de apoio quando necessário. Consulte [as correções da auditoria e seus limites](docs/CORRECOES-AUDITORIA.md).

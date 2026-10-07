@@ -12,18 +12,20 @@
   "steps": [
     {
       "type": "info",
-      "text": "Queremos estimar a média da população usando apenas cinco pessoas.\nrange(10, 110) gera os inteiros de 10 a 109. list transforma essa sequência em lista.\nRandom(42) fixa uma semente: repetir o experimento com a mesma semente e versão reproduz os sorteios.\nsample sorteia pessoas sem reposição dentro de cada amostra.\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "text": "Queremos estimar o tempo médio de uma população simulada usando cinco pessoas. A lista populacao contém os inteiros de 10 até 109, em minutos: cada valor representa uma pessoa. Não representa uma escola real.\nPrimeiro vamos comparar dois sorteios; depois construiremos a repetição em pequenos passos.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "amostragem-1"
     },
     {
       "type": "reflection",
       "text": "Você espera que duas amostras aleatórias de cinco pessoas tenham sempre a mesma média? Justifique sua previsão.",
       "rubric": "Compare sua resposta com estes critérios: As pessoas sorteadas podem mudar; portanto as médias podem variar, mesmo sem erro de cálculo.",
-      "feedback_ok": "Você pode consultar esta resposta na exportação."
+      "feedback_ok": "Você pode consultar esta resposta na exportação.",
+      "id": "amostragem-2"
     },
     {
       "type": "code",
-      "text": "Aqui conhecemos toda a população simulada. Calcule sua média.",
+      "text": "Aqui conhecemos toda a população simulada. Calcule sua média. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 59.5
@@ -35,16 +37,18 @@
         "mean(populacao)\n59,5 minutos é o parâmetro conhecido deste experimento. Em uma pesquisa real ele pode ser desconhecido."
       ],
       "feedback_ok": "59,5 minutos é o parâmetro conhecido deste experimento. Em uma pesquisa real ele pode ser desconhecido.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "amostragem-3"
     },
     {
       "type": "info",
       "text": "Veja os sorteios com :explorar e primeira; depois segunda.\nA primeira amostra é [91, 24, 13, 104, 45]. A segunda é [41, 38, 27, 104, 23].\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "amostragem-4"
     },
     {
       "type": "code",
-      "text": "Calcule a média de primeira.",
+      "text": "Calcule a média de primeira. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 55.4
@@ -56,11 +60,12 @@
         "mean(primeira)\nResultado correto. Agora interprete o que ele significa."
       ],
       "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "amostragem-5"
     },
     {
       "type": "code",
-      "text": "Calcule a média de segunda.",
+      "text": "Calcule a média de segunda. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 46.6
@@ -72,7 +77,8 @@
         "mean(segunda)\nAs estimativas 55,4 e 46,6 são diferentes, mesmo com o mesmo método de sorteio."
       ],
       "feedback_ok": "As estimativas 55,4 e 46,6 são diferentes, mesmo com o mesmo método de sorteio.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "amostragem-6"
     },
     {
       "type": "choice",
@@ -90,16 +96,65 @@
         "Compare os números e o contexto.",
         "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
         "Alternativa 2. Isso é variabilidade amostral. A população continuou a mesma."
-      ]
+      ],
+      "id": "amostragem-7"
     },
     {
       "type": "info",
-      "text": "Exemplo resolvido: [mean([1, 2, 3]) for _ in range(3)] cria três resultados.\nVamos repetir 200 sorteios. Em cada repetição, sample seleciona cinco pessoas; entre repetições elas podem reaparecer.\nEsta repetição não é bootstrap: estamos sorteando da população conhecida.\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "text": "Um sorteio: Random(42) cria um gerador com semente 42. A semente permite repetir a mesma sequência neste exercício; não torna a amostra representativa. rng.sample(populacao, 5) sorteia cinco pessoas SEM reposição dentro dessa amostra.\nExemplo menor: Random(42).sample([1, 2, 3], 2) retorna [3, 1]. Na próxima etapa, crie sua amostra da população completa.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "amostragem-8"
     },
     {
       "type": "code",
-      "text": "Crie 200 médias amostrais em medias. Reinicie a semente antes do experimento.\nPode usar uma linha: rng = Random(42); medias = [mean(rng.sample(populacao, 5)) for _ in range(200)]",
+      "text": "Crie uma única amostra em amostra: reinicie rng = Random(42) e sorteie cinco pessoas de populacao, sem reposição.",
+      "target": "amostra",
+      "check": {
+        "kind": "sequence",
+        "value": [
+          91,
+          24,
+          13,
+          104,
+          45
+        ]
+      },
+      "solution": "rng = Random(42); amostra = rng.sample(populacao, 5)",
+      "hints": [
+        "Uma amostra tem cinco pessoas da população inteira.",
+        "Use rng.sample(populacao, 5), depois de criar rng com semente 42.",
+        "rng = Random(42); amostra = rng.sample(populacao, 5)\nAmostra guardada. A próxima etapa calcula sua média."
+      ],
+      "feedback_ok": "Uma amostra está guardada. Agora separe o sorteio de seu resumo.",
+      "feedback_wrong": "Confira a semente 42, cinco pessoas sem reposição e a variável amostra.",
+      "id": "amostragem-9"
+    },
+    {
+      "type": "code",
+      "text": "Calcule a média da amostra que acabou de guardar. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
+      "check": {
+        "kind": "number",
+        "value": 55.4
+      },
+      "solution": "mean(amostra)",
+      "hints": [
+        "Agora resumimos os cinco valores; não fazemos outro sorteio.",
+        "Use mean(amostra).",
+        "mean(amostra)\nA média amostral é 55,4 minutos."
+      ],
+      "feedback_ok": "Você sorteou e resumiu em etapas separadas.",
+      "feedback_wrong": "Use a mesma amostra da etapa anterior; :dica ajuda.",
+      "id": "amostragem-10"
+    },
+    {
+      "type": "info",
+      "text": "Repetir: range(200) conta 200 repetições. Em um laço, medias = [] cria a lista e medias.append(...) acrescenta cada nova média.\nExemplo resolvido menor:\nvalores = []\nfor _ in range(3):\n    valores.append(mean([1, 2, 3]))\nIsso gera [2, 2, 2]. O _ é apenas o contador que não precisamos usar.\nNa sua tarefa, cada repetição fará um NOVO sorteio. Entre amostras uma pessoa pode reaparecer. Isso não é bootstrap: bootstrap reamostra com reposição uma amostra observada.\nPressione Enter para continuar.",
+      "feedback_ok": "Passe do exemplo pequeno à população simulada.",
+      "id": "amostragem-11"
+    },
+    {
+      "type": "code",
+      "text": "Agora crie e guarde em medias as médias de 200 novas amostras de cinco pessoas. Reinicie rng = Random(42) antes das 200 repetições; mantenha a população original (10 a 109). Pode usar laço ou compreensão de lista. Validação: sequência determinística completa, na ordem dos sorteios, e não apenas uma distribuição parecida. Digite :bloco para um laço em várias linhas ou :dica para apoio.",
       "check": {
         "kind": "sample_means",
         "value": null
@@ -112,16 +167,18 @@
       ],
       "feedback_ok": "As 200 médias estão registradas. Explore min(medias), max(medias) e mean(medias).",
       "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
-      "target": "medias"
+      "target": "medias",
+      "id": "amostragem-12"
     },
     {
       "type": "info",
       "text": "Experimente: :explorar e pstdev(medias). Isso descreve o espalhamento das médias simuladas.\nCompare com 200 amostras maiores: :explorar e rng = Random(42); medias_20 = [mean(rng.sample(populacao, 20)) for _ in range(200)]; pstdev(medias_20).\nAmostras aleatórias maiores tendem a reduzir a variabilidade; não garantem que cada estimativa individual fique mais perto do parâmetro.\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "amostragem-13"
     },
     {
       "type": "code",
-      "text": "Transferência: calcule a média de uma seleção por conveniência que inclui só as dez primeiras pessoas: populacao[:10].",
+      "text": "Transferência: calcule a média de uma seleção por conveniência que inclui só as dez primeiras pessoas: populacao[:10]. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 14.5
@@ -133,7 +190,8 @@
         "mean(populacao[:10])\n14,5 minutos. Selecionar apenas tempos baixos produz uma estimativa enviesada neste exemplo."
       ],
       "feedback_ok": "14,5 minutos. Selecionar apenas tempos baixos produz uma estimativa enviesada neste exemplo.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "amostragem-14"
     },
     {
       "type": "choice",
@@ -151,13 +209,16 @@
         "Compare os números e o contexto.",
         "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
         "Alternativa 2. O tamanho da amostra não corrige automaticamente uma seleção enviesada."
-      ]
+      ],
+      "id": "amostragem-15"
     },
     {
       "type": "reflection",
       "text": "Escreva um pequeno relatório: qual parâmetro investigou, quais estimativas encontrou, por que variaram e o que não pode concluir sobre uma escola real.",
       "rubric": "Compare sua resposta com estes critérios: Média populacional simulada 59,5; primeiras estimativas 55,4 e 46,6. Variabilidade vem dos sorteios. A seleção por conveniência estimou 14,5 e é enviesada aqui. Os dados são simulados; não descrevem uma escola real nem permitem estabelecer causas.",
-      "feedback_ok": "Você pode consultar esta resposta na exportação."
+      "feedback_ok": "Você pode consultar esta resposta na exportação.",
+      "id": "amostragem-16"
     }
-  ]
+  ],
+  "revision": 2
 }

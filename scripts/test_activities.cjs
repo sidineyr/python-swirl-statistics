@@ -1,0 +1,16 @@
+const assert = require('node:assert/strict');
+const {mean, median, amplitude, number, tasks} = require('../site/activities.js');
+assert.equal(mean([10,12,14,16,88]),28);
+assert.equal(median([10,12,14,16,88]),14);
+assert.equal(median([2,4,6,8]),5);
+assert.equal(amplitude([3,5,7,10,10]),7);
+assert.equal(mean([91,24,13,104,45]),55.4);
+assert.equal(mean([41,38,27,104,23]),46.6);
+assert.equal(mean(Array.from({length:10},(_,i)=>10+i)),14.5);
+assert.equal(number('55,4'),55.4);
+assert.equal(number('55.4'),55.4);
+for (const text of ['','mean(tempos)','14, 15','Infinity','<script>','55,4,0']) assert.ok(Number.isNaN(number(text)));
+assert.equal(tasks.media.expected,28);
+assert.equal(tasks.dispersao.expected,7);
+assert.equal(tasks.amostragem.expected,55.4);
+console.log('OK: cálculos e entradas das três atividades web');

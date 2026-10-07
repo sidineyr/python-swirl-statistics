@@ -22,7 +22,7 @@ Exemplo de etapa:
 }
 ```
 
-Sem `target`, o motor valida o valor da última expressão da entrada. Com `target`, valida a variável nomeada; use isso se o estudante precisa guardar um resultado. `check.kind` admite number, sequence e sample_means (este último é específico da simulação da lição 3). Bool não conta como número. O campo solution documenta a solução de referência e é usado nos testes; o comando :dica usa os textos em hints, então inclua a solução comentada na última dica.
+Sem `target`, o motor valida o resultado inequívoco da expressão, de uma atribuição final ou de um único valor passado a print. Com `target`, a entrada deve produzir ou mostrar explicitamente a variável nomeada; uma variável antiga não aprova código sem relação. `check.kind` admite number, sequence e sample_means (este último é específico da simulação da lição 3). Bool não conta como número. O campo solution documenta a solução de referência e é usado nos testes; o comando :dica usa os textos em hints, então inclua a solução comentada na última dica.
 
 Tipos de etapa:
 
@@ -47,6 +47,8 @@ Checklist de autoria:
 8. Execute soluções, tentativas equivalentes e erros previstos.
 9. Teste pausa e retomada e observe a experiência com iniciantes.
 
-Não mude id nem a ordem das etapas de uma lição publicada sem planejar migração. A versão 0.1 salva o índice e os eventos de uma estrutura fixa. Renomear apenas um texto pode ser seguro; inserir ou remover etapas invalida a associação entre progresso e percurso. Não há migração automática nesta versão.
+Não mude id nem a ordem das etapas de uma lição publicada sem planejar migração. A versão 0.1 salva o índice e os eventos de uma estrutura fixa. Renomear apenas um texto pode ser seguro; inserir ou remover etapas invalida a associação entre progresso e percurso. A revisão 2 possui migração específica do percurso da lição 3; não há migração genérica. Toda alteração estrutural nova precisa de migração e teste próprios.
 
 O menu e --licao usam a ordem dos arquivos automaticamente. Uma nova lição que use os tipos e validadores existentes não exige mudar o motor.
+
+`check.decimals` é opcional para number: compara o arredondamento nessa quantidade de casas e deve aparecer na pergunta. Sem esse campo a tolerância numérica permanece 1e-7. `sample_means` usa a população de referência fixa 10 a 109, independente do namespace do estudante; não reutilize esse validador para outra população sem mudar a implementação e testar. `revision` identifica a revisão de percurso. IDs e eventos de etapas precisam de migração explícita quando a ordem mudar.

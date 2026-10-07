@@ -12,18 +12,20 @@
   "steps": [
     {
       "type": "info",
-      "text": "Dados: turma_a = [6, 7, 7, 7, 8]; turma_b = [3, 5, 7, 10, 10].\nPergunta: uma média permite descrever as diferenças entre as turmas?\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "text": "Dados: turma_a = [6, 7, 7, 7, 8]; turma_b = [3, 5, 7, 10, 10].\nPergunta: uma média permite descrever as diferenças entre as turmas?\nPressione Enter para continuar.\nCompare visualmente antes das fórmulas: :explorar e grafico(turma_a, \"Turma A\", limits=(0, 10)); repita para turma_b, com os mesmos limites. Cada ponto é uma nota.",
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "dispersao-1"
     },
     {
       "type": "reflection",
       "text": "Faça uma previsão: qual turma tem maior espalhamento das notas? Por quê?",
       "rubric": "Compare sua resposta com estes critérios: Compare a distância entre notas baixas e altas, sem precisar de uma fórmula.",
-      "feedback_ok": "Você pode consultar esta resposta na exportação."
+      "feedback_ok": "Você pode consultar esta resposta na exportação.",
+      "id": "dispersao-2"
     },
     {
       "type": "code",
-      "text": "Calcule a média da turma_a.",
+      "text": "Calcule a média da turma_a. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 7
@@ -35,11 +37,12 @@
         "mean(turma_a)\nResultado correto. Agora interprete o que ele significa."
       ],
       "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "dispersao-3"
     },
     {
       "type": "code",
-      "text": "Calcule a média da turma_b.",
+      "text": "Calcule a média da turma_b. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 7
@@ -51,11 +54,12 @@
         "mean(turma_b)\nAs duas médias são 7. Isso não torna as distribuições iguais."
       ],
       "feedback_ok": "As duas médias são 7. Isso não torna as distribuições iguais.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "dispersao-4"
     },
     {
       "type": "code",
-      "text": "Amplitude é máximo menos mínimo. Calcule a amplitude da turma_a.",
+      "text": "Amplitude é máximo menos mínimo. Calcule a amplitude da turma_a. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 2
@@ -67,11 +71,12 @@
         "max(turma_a) - min(turma_a)\nResultado correto. Agora interprete o que ele significa."
       ],
       "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "dispersao-5"
     },
     {
       "type": "code",
-      "text": "Calcule a amplitude da turma_b.",
+      "text": "Calcule a amplitude da turma_b. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 7
@@ -83,19 +88,22 @@
         "max(turma_b) - min(turma_b)\nResultado correto. Agora interprete o que ele significa."
       ],
       "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "dispersao-6"
     },
     {
       "type": "info",
       "text": "Desvio padrão resume as distâncias em torno da média e tem a mesma unidade das notas.\nUse pstdev quando estiver descrevendo a população completa definida aqui: as cinco notas de cada turma.\nstdev usa a correção amostral, apropriada em outro objetivo de estimação. Não são funções intercambiáveis.\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "dispersao-7"
     },
     {
       "type": "code",
-      "text": "Calcule o desvio padrão populacional da turma_a.",
+      "text": "Calcule o desvio padrão populacional da turma_a. Pode fornecer o valor completo ou arredondar com round(..., 2). A comparação será feita com duas casas decimais; use ponto no código.",
       "check": {
         "kind": "number",
-        "value": 0.6324555320336759
+        "value": 0.6324555320336759,
+        "decimals": 2
       },
       "solution": "pstdev(turma_a)",
       "hints": [
@@ -104,14 +112,16 @@
         "pstdev(turma_a)\nAproximadamente 0,63 ponto. É uma medida do espalhamento, não uma margem de erro."
       ],
       "feedback_ok": "Aproximadamente 0,63 ponto. É uma medida do espalhamento, não uma margem de erro.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "Confira se usou pstdev para as cinco notas completas; compare com duas casas decimais. stdev responde a outro objetivo.",
+      "id": "dispersao-8"
     },
     {
       "type": "code",
-      "text": "Calcule o desvio padrão populacional da turma_b.",
+      "text": "Calcule o desvio padrão populacional da turma_b. Pode fornecer o valor completo ou arredondar com round(..., 2). A comparação será feita com duas casas decimais; use ponto no código.",
       "check": {
         "kind": "number",
-        "value": 2.756809750418044
+        "value": 2.756809750418044,
+        "decimals": 2
       },
       "solution": "pstdev(turma_b)",
       "hints": [
@@ -120,12 +130,14 @@
         "pstdev(turma_b)\nAproximadamente 2,76 pontos: maior dispersão neste grupo."
       ],
       "feedback_ok": "Aproximadamente 2,76 pontos: maior dispersão neste grupo.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "Confira se usou pstdev para as cinco notas completas; compare com duas casas decimais. stdev responde a outro objetivo.",
+      "id": "dispersao-9"
     },
     {
       "type": "info",
-      "text": "Visualização: use :explorar e grafico(turma_a, \"Turma A: notas de 0 a 10\"). Repita com turma_b.\nCada ponto representa uma nota e valores iguais se empilham. A saída informa frequências em texto e o caminho de um SVG.\nOs gráficos ajustam o eixo a cada conjunto: compare os rótulos numéricos, não apenas a largura visual.\nPressione Enter para continuar.",
-      "feedback_ok": "Observe o contexto antes de calcular."
+      "text": "Visualização: use :explorar e grafico(turma_a, \"Turma A\", limits=(0, 10)). Repita com turma_b e limits=(0, 10).\nOs dois gráficos usam a mesma escala de notas, de 0 a 10, com marcações comuns. Frequências também aparecem em texto.\nPressione Enter para continuar.",
+      "feedback_ok": "Observe o contexto antes de calcular.",
+      "id": "dispersao-10"
     },
     {
       "type": "choice",
@@ -146,11 +158,12 @@
         "Compare os números e o contexto.",
         "Procure a alternativa que reconhece o que os dados mostram e seus limites.",
         "Alternativa 1. As notas da turma B estão mais espalhadas. As causas não foram investigadas."
-      ]
+      ],
+      "id": "dispersao-11"
     },
     {
       "type": "code",
-      "text": "Transferência: turno_c e turno_d contêm tempos de tarefa, em minutos. Calcule a amplitude de turno_d.",
+      "text": "Novo contexto: deixamos as notas e passamos a TEMPOS de tarefa, em minutos. turno_c = [9, 10, 10, 10, 11] e turno_d = [6, 8, 10, 13, 13]. A mesma ideia de máximo menos mínimo vale, mas a unidade agora é minuto. Calcule a amplitude de turno_d. Forneça o valor completo; não arredonde esta etapa. Expressão, print de um único valor e atribuição final são aceitos.",
       "check": {
         "kind": "number",
         "value": 7
@@ -162,13 +175,16 @@
         "max(turno_d) - min(turno_d)\nResultado correto. Agora interprete o que ele significa."
       ],
       "feedback_ok": "Resultado correto. Agora interprete o que ele significa.",
-      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo."
+      "feedback_wrong": "O código rodou, mas o resultado ainda não responde ao pedido. Use :dica ou tente outro cálculo.",
+      "id": "dispersao-12"
     },
     {
       "type": "reflection",
       "text": "Descreva a diferença entre as turmas com média e pelo menos uma medida de dispersão. Proponha uma informação adicional necessária antes de decidir uma intervenção pedagógica.",
       "rubric": "Compare sua resposta com estes critérios: Média 7 em ambas; amplitudes 2 e 7 ou desvios 0,63 e 2,76. Solicite contexto, itens da avaliação ou necessidades individuais. Não atribua causalidade nem generalize a partir destas turmas fictícias.",
-      "feedback_ok": "Você pode consultar esta resposta na exportação."
+      "feedback_ok": "Você pode consultar esta resposta na exportação.",
+      "id": "dispersao-13"
     }
-  ]
+  ],
+  "revision": 2
 }
