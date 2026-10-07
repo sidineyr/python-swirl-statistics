@@ -47,7 +47,7 @@ for path in pages:
     assert parsed.json_blocks, path.name
     assert 'conteudo' in parsed.ids and '#conteudo' in parsed.links, path.name
     if path.name in ('media-mediana.html', 'dispersao.html', 'amostragem.html'):
-        assert 'prediction-note' in parsed.ids and 'activities.js' in parsed.links, path.name
+        assert 'prediction-note' in parsed.ids and any(urlparse(link).path == 'activities.js' for link in parsed.links), path.name
     for block in parsed.json_blocks:
         data = json.loads(block)
         assert data["url"] == parsed.canonical[0]
