@@ -1,0 +1,3 @@
+# Modelo para integrar ao robots.txt na raiz de um domínio sob seu controle.
+# Preserve as regras existentes. Este arquivo na subpasta do projeto não controla o domínio.
+Sitemap: https://sidineyr.github.io/python-swirl-statistics/sitemap.xml
