@@ -16,6 +16,12 @@ Testes DOM percorrem os dez módulos: respostas corretas/incorretas/inválidas, 
 
 Títulos e autoria dos recursos de vídeo confirmados pelo oEmbed; tema confrontado com descrições/página de autor. Alguns opens do buscador foram bloqueados. Reprodução integral, legendas e duração não verificadas. Os endereços Colab apontam para notebooks portáteis; execução autenticada dentro do Colab não foi testada. Execução real local dos notebooks foi testada.
 
+## Verificação da publicação
+
+O curso reconstruído foi publicado no GitHub Pages. [Publicação](https://github.com/sidineyr/python-swirl-statistics/actions/runs/37856297078) e [testes automáticos](https://github.com/sidineyr/python-swirl-statistics/actions/runs/37856297144) passaram para o commit bcb2587a3745ab40243099ae2355ccbace16ffb1. A matriz da CLI cobriu Linux e Windows com Python 3.10 e 3.12; o job novo executou notebooks, testes DOM e a reprodução do gerador.
+
+Em navegador de desktop, foram percorridas as dez páginas publicadas: sete etapas, duas questões e link de notebook em cada uma, sem transbordamento horizontal. A página inicial e o projeto final tiveram revisão visual. Na primeira aula, a incorporação mostrou o player correto do YouTube; o botão Praticar esta aula levou à prática. Resposta errada, resposta correta e retomada após reload foram verificadas na interface. O notebook inicial abriu no visualizador público do Colab com células e conteúdo reconhecidos; não houve login nem execução autenticada.
+
 ## Limites restantes
 
-Revisão visual em navegador e celular real, leitor de tela, verificação integral dos vídeos e piloto com alunos continuam necessários. O download do navegador de teste falhou neste ambiente, por isso não há alegação de validação visual. Não há evidência de eficácia educacional, correção automática de interpretação, certificado ou sincronização com notebooks externos.
+Revisão em celular real, leitor de tela, verificação integral dos vídeos e piloto com alunos continuam necessários. O download do navegador local falhou; a revisão de desktop foi realizada depois no navegador remoto. Não há evidência de eficácia educacional, correção automática de interpretação, certificado ou sincronização com notebooks externos.
