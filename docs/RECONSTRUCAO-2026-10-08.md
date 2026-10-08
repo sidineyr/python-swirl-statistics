@@ -10,7 +10,7 @@ Curso web de dez módulos com conceitos desenvolvidos, exemplos resolvidos, erro
 
 ## Validação
 
-Os 20 testes preexistentes da CLI passaram. Os cálculos das três prévias passaram. Links locais, âncoras, JSON-LD, canônicos e sitemap conferidos em 18 páginas. Os vinte notebooks foram executados célula a célula com Python, pandas e matplotlib (160 células); vinte referências de questões foram recalculadas. Contagens, ausências, médias, medianas, quartis, desvio e correlação do CSV foram conferidos independentemente. Soluções equivalentes, tolerância, resposta incorreta, texto, booleanos e NaN exercitaram o conferidor numérico.
+Os 20 testes preexistentes da CLI passaram. Os cálculos das três prévias passaram. Links locais, âncoras, JSON-LD, canônicos e sitemap conferidos em 18 páginas. Os vinte notebooks foram executados célula a célula com Python, pandas e matplotlib (140 células); vinte referências de questões foram recalculadas. Contagens, ausências, médias, medianas, quartis, desvio e correlação do CSV foram conferidos independentemente. Soluções equivalentes, tolerância, resposta incorreta, texto, booleanos e NaN exercitaram o conferidor numérico.
 
 Testes DOM percorrem os dez módulos: respostas corretas/incorretas/inválidas, critérios de conclusão, retomada, preservação de textos ao refazer, carregamento voluntário do vídeo e armazenamento bloqueado. Esse teste não renderiza a página.
 
