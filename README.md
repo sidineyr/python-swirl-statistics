@@ -1,92 +1,61 @@
 # Python Swirl
 
-**Aprenda estatística praticando em Python.**
+**Aprenda Python e estatística com conceitos, vídeos e desafios.**
 
-**Lançamento público · 7 de outubro de 2026:** a versão 0.1 está disponível para estudar, adaptar e contribuir. Leia o [anúncio do projeto](docs/LANCAMENTO.md).
+Curso gratuito para iniciantes, idealizado e dirigido pedagogicamente pelo **[professor Sidiney Rodrigues](https://github.com/sidineyr)**. A reconstrução de 8/10/2026 oferece dez módulos, do primeiro cálculo à entrega de uma análise de dados.
 
-Curso interativo gratuito para iniciantes. Você faz uma previsão, calcula em Python, interpreta o resultado e aplica a ideia a outros dados. A compreensão estatística orienta cada atividade.
+## Comece pelo curso on-line
 
-**Idealização e direção pedagógica: [Sidiney Rodrigues, pedagogo](https://github.com/sidineyr).**
+**[Abrir o curso](https://sidineyr.github.io/python-swirl-statistics/)** · [Como estudar](https://sidineyr.github.io/python-swirl-statistics/como-estudar.html)
 
-## Escolha como começar
+Cada aula segue problema → conceitos → vídeo → prática guiada → questões → desafio → síntese. Você executa Python real em um notebook, confere resultados e interpreta os dados com uma rubrica. Vídeos são complementares; explicações textuais permitem estudar sem assisti-los.
 
-- [Experimente os três temas no navegador](https://sidineyr.github.io/python-swirl-statistics/): prévias conceituais com tentativa, feedback e exploração. Cálculos em JavaScript; não executam Python.
-- [Baixe e faça o curso com Python no computador](https://sidineyr.github.io/python-swirl-statistics/instalacao.html): requisitos e passos para Windows e Linux.
+O site não executa Python. Use os notebooks pelo Colab (com conta Google) ou baixe e execute em Jupyter local (sem cadastro). Dez notebooks iniciais e dez soluções acompanham o curso; o CSV sintético já está incorporado para evitar dependência de download em execução.
 
-## Comece em poucos passos
+## Percurso e entregas
 
-Instale Python 3.10 ou superior, [baixe o ZIP atual](https://github.com/sidineyr/python-swirl-statistics/archive/refs/heads/main.zip) ou clone o repositório e abra o terminal na pasta do README. Não é necessário instalar bibliotecas para estudar.
+| Módulo | Você aprende a |
+| --- | --- |
+| 1. Execute seu primeiro cálculo | Executar uma célula Python; Distinguir código, saída e comentário; Interpretar uma divisão no contexto |
+| 2. Organize valores, tipos e listas | Criar nomes e listas; Distinguir texto e número; Calcular uma média com sum e len |
+| 3. Leia uma tabela com pandas | Criar um DataFrame e ler CSV; Inspecionar linhas e colunas; Filtrar observações |
+| 4. Escolha medidas conforme o tipo de variável | Classificar variáveis; Distinguir códigos de quantidades; Escolher resumos adequados |
+| 5. Trate ausências sem inventar observações | Contar ausências; Distinguir zero de desconhecido; Documentar uma decisão de limpeza |
+| 6. Transforme contagens em um gráfico legível | Calcular frequências e proporções; Escolher barras ou histograma; Rotular um gráfico e interpretá-lo |
+| 7. Compare centro e espalhamento | Calcular média, mediana e quantis; Distinguir desvios amostral e populacional; Comparar grupos além da média |
+| 8. Investigue variabilidade, viés e incerteza | Distinguir população e amostra; Simular médias amostrais; Distinguir desvio padrão e erro padrão |
+| 9. Interprete associação sem afirmar causalidade | Calcular correlação de Pearson; Examinar um gráfico de dispersão; Identificar limites de uma conclusão causal |
+| 10. Entregue uma análise que outra pessoa possa revisar | Formular uma pergunta analisável; Integrar limpeza, medidas e gráficos; Entregar notebook e conclusão com limitações |
 
-Windows:
+A entrega final é um notebook com pergunta, preparação dos dados, medidas, gráficos e conclusão com limitações. Tempo estimado: cerca de 12 horas de leitura e prática, além dos vídeos. Dados fictícios para ensino, sem estudantes reais.
 
-```powershell
-py -3 -m python_swirl
-```
+## Progresso e avaliação
 
-Linux:
+O curso guarda textos, conferências e rubricas no navegador e oferece exportação/importação. Visitar uma aula não equivale a concluir atividade. A conclusão combina conferência numérica e autoavaliação; não comprova domínio. Não há cadastro obrigatório no site, tutor com API paga ou certificado. O site não importa automaticamente resultados do Colab.
+
+## Curso original no terminal
+
+As três lições da CLI e seu progresso continuam compatíveis. Instale Python 3.10 ou superior e execute a partir do repositório:
 
 ```sh
-python3 -m python_swirl
+python -m python_swirl
 ```
 
-Escolha a lição **1**. Exemplo do que você vai investigar:
+No Windows, use `py -3 -m python_swirl`. [Instalação](docs/INSTALACAO.md), [uso e comandos](docs/USO.md). O código digitado executa localmente sem isolamento; use materiais de confiança. As [prévias conceituais antigas](https://sidineyr.github.io/python-swirl-statistics/media-mediana.html) também permanecem disponíveis.
 
-```python
->>> mean([10, 12, 14, 16, 88])
-28
->>> median([10, 12, 14, 16, 88])
-14
-```
+## Documentação
 
-O tempo de 88 minutos eleva a média. Qual medida comunica melhor um tempo típico? O curso pede que você explique, além de calcular. Os sinais `>>>` ilustram a interação; não os copie ao digitar.
-
-## Lições disponíveis
-
-| Lição | Você aprende a |
-| --- | --- |
-| O que uma média esconde? | Comparar média e mediana e investigar um valor extremo |
-| Duas turmas, a mesma média. São iguais? | Interpretar amplitude, desvio padrão e gráfico de pontos |
-| Uma amostra conta toda a história? | Simular amostras e distinguir variabilidade de viés |
-
-Dados simulados, linguagem em português e respostas abertas com critérios de autoavaliação. Código e progresso ficam no computador, sem conta ou API paga.
-
-## Ajuda e retomada
-
-- `:dica`: apoio progressivo, chegando a uma solução comentada.
-- `:explorar`: experimentar Python em contexto separado, sem avançar ou alterar a resposta.
-- `:repetir`: reler a etapa.
-- `:bloco`: escrever várias linhas; encerrar com `.` em uma linha própria.
-- `:sair`: pausar; escolha a mesma lição na próxima execução para retomar.
-- `:restaurar`: recuperar os dados originais sem apagar respostas.
-- `:revisar` e `:editar`: ler e revisar suas reflexões, mantendo o histórico.
-- `:reiniciar`: refazer a lição após confirmação explícita, removendo o progresso dela.
-
-Respostas abertas não recebem nota automática. Para exportar suas respostas, use `python -m python_swirl --exportar minhas-respostas.json`. Os gráficos são SVGs locais com descrição textual; o curso informa onde abri-los.
-
-## Documentação e contribuição
-
-- [Instalação](docs/INSTALACAO.md) e [guia completo de uso](docs/USO.md).
-- [Currículo, pesquisa e arquitetura](docs/PROJETO.md).
-- [Criar lições](docs/AUTORIA.md) e [contribuir](CONTRIBUTING.md).
-- [Avaliação pedagógica](docs/AVALIACAO.md), [validação técnica](docs/VALIDACAO.md) e [histórico](CHANGELOG.md).
-- [Créditos](CREDITS.md), [licenças](LICENSE.md) e [preparação para AdSense](docs/ADSENSE.md).
+- [Matriz curricular e entregas](docs/CURRICULO-ONLINE.md).
+- [Vídeos, autores e nível de verificação](docs/VIDEOS.md).
+- [Reconstrução, testes e limitações](docs/RECONSTRUCAO-2026-10-08.md).
+- [Manutenção e rubrica do projeto](docs/MANUTENCAO-ONLINE.md).
+- [Autoria da CLI](docs/AUTORIA.md), [contribuição](CONTRIBUTING.md), [histórico](CHANGELOG.md).
+- [Indexação](docs/INDEXACAO.md), [licenças](LICENSE.md), [créditos](CREDITS.md).
 
 ## Estado e limites
 
-A versão 0.1 contém as três lições acima. Tabelas, inferência, regressão e o projeto final estão planejados. Não há certificado, tutor com IA ou publicação no PyPI. Vinte testes técnicos passaram localmente em Linux/Python 3.12.14, incluindo regressões da auditoria e execução real da CLI. O piloto com estudantes, leitores de tela e dispositivos móveis reais ainda precisa ser realizado. A matriz técnica da revisão 2 com Python 3.10 e 3.12 passou em Linux e Windows no [run 37689651692](https://github.com/sidineyr/python-swirl-statistics/actions/runs/37689651692); cada atualização executa novamente esses jobs no [GitHub Actions](https://github.com/sidineyr/python-swirl-statistics/actions); consulte os jobs para o alcance da validação. Isso não substitui a avaliação com estudantes.
+Testes técnicos e revisão dos exemplos não substituem piloto com estudantes. Reprodução integral dos vídeos, legendas, revisão visual em dispositivos reais e acessibilidade assistiva precisam de revisão. Os vídeos possuem título/autoria confirmados e correspondência temática examinada, com limites registrados na curadoria. Colab autenticado não foi testado; os notebooks executaram localmente.
 
-O código do estudante executa localmente, sem isolamento, e é reexecutado na retomada. Use código e lições de confiança. Consulte [o guia de uso](docs/USO.md) para detalhes; este executor não deve ser exposto como serviço web.
+Inspirado no [swirl do R](https://swirlstats.com/); projeto independente sem vínculo oficial. Elaborado com assistência de ChatGPT/Codex sob orientação do idealizador. Código original MIT; conteúdo e dados sintéticos originais CC BY 4.0. Vídeos e materiais externos conservam suas próprias condições; respostas de estudantes não são abrangidas pela licença pública.
 
-## Créditos e compromisso social
-
-Inspirado no [swirl do R](https://swirlstats.com/) e em seu [repositório original](https://github.com/swirldev/swirl). Projeto independente, sem vínculo oficial. A primeira versão foi elaborada com assistência de ChatGPT/Codex, sob orientação do idealizador. Veja [os créditos](CREDITS.md).
-
-O Python Swirl é um projeto educacional gratuito. Caso o projeto gere lucro, o idealizador declara que esse lucro será destinado ao **[Hospital Pequeno Príncipe](https://pequenoprincipe.org.br/)**. Esse compromisso não representa comprovação de doações realizadas, parceria ou endosso do hospital. Para apoio direto, consulte [os canais oficiais da instituição](https://pequenoprincipe.org.br/doadores/apoie-o-pequeno-principe/).
-
-Código original: [MIT](LICENSE). Conteúdo educacional e dados simulados originais: [CC BY 4.0](LICENSE.md). Dados pessoais e respostas dos estudantes não estão abrangidos por essa licença.
-
-## Apresentação web e indexação
-
-A [apresentação pública](https://sidineyr.github.io/python-swirl-statistics/) está publicada no GitHub Pages, incluindo três prévias conceituais guiadas, instalação, metadados e [sitemap](https://sidineyr.github.io/python-swirl-statistics/sitemap.xml). A publicação foi verificada em 7 de outubro de 2026. O sitemap foi enviado ao Google e a indexação da página inicial e da lição foi solicitada; a presença no índice ainda não foi confirmada. O Bing permanece pendente por bloqueio na autenticação. Consulte [o procedimento de indexação](docs/INDEXACAO.md) e [o prompt completo](docs/PROMPT-INDEXACAO.md). O workflow Pages publica alterações em `site/` na branch main e também pode ser executado manualmente.
-
-A revisão 2 preserva respostas antigas e retoma a lição 3 nas etapas novas de apoio quando necessário. Consulte [as correções da auditoria e seus limites](docs/CORRECOES-AUDITORIA.md).
+Caso gere lucro, o idealizador declara que será destinado ao **[Hospital Pequeno Príncipe](https://pequenoprincipe.org.br/doadores/apoie-o-pequeno-principe/)**. Isso não comprova doações nem representa parceria ou endosso institucional.

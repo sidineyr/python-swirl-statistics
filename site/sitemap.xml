@@ -1,2 +1,21 @@
-<?xml version='1.0' encoding='utf-8'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://sidineyr.github.io/python-swirl-statistics/amostragem.html</loc><lastmod>2026-10-07</lastmod></url><url><loc>https://sidineyr.github.io/python-swirl-statistics/dispersao.html</loc><lastmod>2026-10-07</lastmod></url><url><loc>https://sidineyr.github.io/python-swirl-statistics/index.html</loc><lastmod>2026-10-07</lastmod></url><url><loc>https://sidineyr.github.io/python-swirl-statistics/instalacao.html</loc><lastmod>2026-10-07</lastmod></url><url><loc>https://sidineyr.github.io/python-swirl-statistics/media-mediana.html</loc><lastmod>2026-10-07</lastmod></url><url><loc>https://sidineyr.github.io/python-swirl-statistics/privacidade.html</loc><lastmod>2026-10-07</lastmod></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/01-primeiros-passos.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/02-variaveis-listas.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/03-pandas.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/04-tipos-estatisticos.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/05-limpeza.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/06-frequencias-graficos.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/07-centro-dispersao.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/08-amostragem.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/09-correlacao.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/10-projeto.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/amostragem.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/como-estudar.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/dispersao.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/index.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/instalacao.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/media-mediana.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/privacidade.html</loc></url>
+<url><loc>https://sidineyr.github.io/python-swirl-statistics/recursos.html</loc></url>
+</urlset>

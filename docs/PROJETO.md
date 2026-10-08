@@ -1,3 +1,5 @@
+> A descrição histórica abaixo refere-se à CLI 0.1. O curso web reconstruído possui dez módulos; veja [a matriz atual](CURRICULO-ONLINE.md) e [o relatório](RECONSTRUCAO-2026-10-08.md).
+
 # Proposta pedagógica e técnica · versão 0.1
 
 ## 1. Produto e público

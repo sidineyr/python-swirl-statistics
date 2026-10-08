@@ -37,7 +37,7 @@ class Page(HTMLParser):
         if tag == "script": self.in_json = False
 
 pages = sorted(ROOT.glob("*.html"))
-assert len(pages) == 6
+assert len(pages) == 18
 urls = []
 for path in pages:
     parsed = Page()
@@ -64,4 +64,4 @@ for path in pages:
 sitemap = ET.parse(ROOT / "sitemap.xml")
 locations = [node.text for node in sitemap.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
 assert sorted(locations) == sorted(urls)
-print("OK: 6 pages, canonical URLs, JSON-LD, local links and sitemap")
+print("OK: 18 pages, canonical URLs, JSON-LD, local links and sitemap")

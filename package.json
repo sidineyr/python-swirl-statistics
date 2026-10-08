@@ -1,0 +1,6 @@
+{
+  "name": "python-swirl-course-checks",
+  "private": true,
+  "scripts": {"test": "node scripts/test_activities.cjs && node scripts/test_course_web.cjs"},
+  "devDependencies": {"jsdom": "^27.0.0"}
+}

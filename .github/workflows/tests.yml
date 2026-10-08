@@ -35,3 +35,21 @@ jobs:
       - name: Verificar JSONs no pacote instalado
         working-directory: ${{ runner.temp }}
         run: python -c "from python_swirl.engine import load_lessons; assert len(load_lessons()) == 3; from python_swirl.__main__ import main; import sys; sys.argv = ['python-swirl', '--listar']; main()"
+
+  online-course:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python -m pip install pandas matplotlib
+      - run: npm ci
+      - run: python scripts/check_notebooks.py
+      - run: npm test
+      - run: python scripts/build_course.py
+      - run: git diff --exit-code -- site/

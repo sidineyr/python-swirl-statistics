@@ -1,0 +1,616 @@
+[
+  {
+    "slug": "01-primeiros-passos",
+    "title": "Execute seu primeiro cálculo",
+    "minutes": 40,
+    "objectives": [
+      "Executar uma célula Python",
+      "Distinguir código, saída e comentário",
+      "Interpretar uma divisão no contexto"
+    ],
+    "problem": "Uma oficina distribui 36 cadernos igualmente entre 4 grupos. Como registrar um cálculo que outra pessoa consiga repetir?",
+    "concepts": [
+      "Um programa é uma sequência de instruções executadas por um interpretador. Python é a linguagem; o notebook organiza código, saída e texto explicativo em células. Uma célula de código só produz resultados quando você a executa.",
+      "Uma expressão combina valores e operações. + soma, - subtrai, * multiplica e / divide. Parênteses controlam a ordem: (12 + 6) / 3 vale 6; 12 + 6 / 3 vale 14. A divisão / retorna um número com parte decimal, mesmo quando o resultado é inteiro.",
+      "print() mostra um resultado. Um comentário começa com # e explica a intenção sem executar uma operação. SyntaxError indica que a escrita do código não pôde ser interpretada; NameError costuma indicar um nome ainda não definido. Leia a última linha do erro e a célula indicada."
+    ],
+    "code": "# Total de cadernos dividido pelo número de grupos\nprint(36 / 4)\nprint((12 + 6) / 3)",
+    "interpretation": "As saídas são 9.0 e 6.0. Cada grupo recebe nove cadernos. O cálculo supõe distribuição igual e não descreve uma distribuição observada.",
+    "mistakes": [
+      "Não copie >>> para uma célula: esse sinal aparece no terminal interativo.",
+      "Use ponto em números decimais no Python, por exemplo 2.5.",
+      "Rodar uma célula não executa automaticamente todas as anteriores."
+    ],
+    "video": "31llNGKWDdo",
+    "questions": [
+      {
+        "text": "Preveja e depois execute: qual é a saída numérica de 12 + 6 / 3?",
+        "expected": 14,
+        "tolerance": 0.01,
+        "feedback": "A divisão ocorre antes da soma: 12 + 2 = 14.",
+        "hint": "Calcule 6 / 3 primeiro.",
+        "solution_code": "12 + 6 / 3"
+      },
+      {
+        "text": "Corrija print(36 / 4 removendo o erro de sintaxe. Qual resultado aparece?",
+        "expected": 9,
+        "tolerance": 0.01,
+        "feedback": "Faltava fechar o parêntese; corrigir a sintaxe permite executar a divisão.",
+        "hint": "Feche o parêntese da função print.",
+        "solution_code": "36 / 4"
+      }
+    ],
+    "challenge": "Uma nova oficina tem 54 cadernos e 6 grupos. No notebook, escreva um comentário, calcule a quantidade por grupo e explique a hipótese da distribuição.",
+    "solution": "print(54 / 6)",
+    "hints": [
+      "Divida o total pela quantidade de grupos.",
+      "Use / dentro de print()."
+    ],
+    "rubric": [
+      "Código executa e retorna 9.0.",
+      "Comentário esclarece o cálculo.",
+      "Texto informa a unidade e a hipótese de divisão igual."
+    ],
+    "summary": "Você executou uma instrução e conectou sua saída a uma decisão. Um número correto precisa de unidade e contexto.",
+    "prerequisites": "Nenhum conhecimento de programação; operações aritméticas básicas.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "02-variaveis-listas",
+    "title": "Organize valores, tipos e listas",
+    "minutes": 55,
+    "objectives": [
+      "Criar nomes e listas",
+      "Distinguir texto e número",
+      "Calcular uma média com sum e len"
+    ],
+    "problem": "Você precisa guardar cinco tempos de estudo e calcular um resumo sem reescrever todos os números.",
+    "concepts": [
+      "Uma variável de programação é um nome associado a um objeto: tempos = [10, 20, 30] associa o nome tempos a uma lista. Uma variável estatística é uma característica observada, como tempo de estudo; cada estudante tem um valor dessa característica. Um nome Python pode guardar todos esses valores.",
+      "int representa inteiros, float números com parte decimal, str texto e bool valores lógicos. \"10\" é texto, enquanto 10 é número. int(\"10\") converte esse texto em inteiro. Converter um identificador como \"0012\" para número pode perder informação e não é sempre apropriado.",
+      "Uma lista é uma sequência ordenada entre colchetes. A primeira posição tem índice 0: tempos[0]. len(tempos) conta elementos e sum(tempos) soma números. A média aritmética divide a soma pela quantidade; a lista precisa ter pelo menos um elemento."
+    ],
+    "code": "tempos = [10, 20, 30]\nprint(tempos[0])\nprint(sum(tempos) / len(tempos))\nprint(int(\"10\") + 2)",
+    "interpretation": "As saídas são 10, 20.0 e 12. O resumo de 20 minutos não afirma que todos estudaram 20 minutos. A lista conserva diferenças que a média esconde.",
+    "mistakes": [
+      "Usar tempos[1] para o primeiro valor seleciona o segundo.",
+      "\"10\" + \"2\" concatena texto e produz \"102\".",
+      "Somar números e dividir por uma quantidade fixa quebra o cálculo quando a lista muda."
+    ],
+    "video": "N1hTsbW50eM",
+    "questions": [
+      {
+        "text": "Qual é o primeiro elemento de [5, 15, 25] usando o índice correto?",
+        "expected": 5,
+        "tolerance": 0.01,
+        "feedback": "O índice 0 acessa o primeiro elemento.",
+        "hint": "A contagem de posições começa em zero.",
+        "solution_code": "[5,15,25][0]"
+      },
+      {
+        "text": "Complete sum(tempos) / ___ para [5, 15, 25]. Qual é a média?",
+        "expected": 15,
+        "tolerance": 0.01,
+        "feedback": "Dividir por len(tempos) acompanha a quantidade de observações.",
+        "hint": "São três valores, cuja soma é 45.",
+        "solution_code": "sum([5,15,25])/len([5,15,25])"
+      }
+    ],
+    "challenge": "Para novos tempos [15, 25, 35, 45], escreva duas maneiras equivalentes de calcular a média. Explique por que média 30 não descreve cada pessoa.",
+    "solution": "tempos = [15, 25, 35, 45]\nprint(sum(tempos) / len(tempos))\nfrom statistics import mean\nprint(mean(tempos))",
+    "hints": [
+      "Crie uma lista nova.",
+      "Compare sum/len com statistics.mean."
+    ],
+    "rubric": [
+      "Duas expressões retornam 30.",
+      "Tipos numéricos são usados.",
+      "Interpretação preserva diferenças individuais."
+    ],
+    "summary": "Agora você representa observações em uma estrutura reutilizável e distingue a característica estudada do nome usado no código.",
+    "prerequisites": "Módulos 1 a 1: Execute seu primeiro cálculo.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "03-pandas",
+    "title": "Leia uma tabela com pandas",
+    "minutes": 65,
+    "objectives": [
+      "Criar um DataFrame e ler CSV",
+      "Inspecionar linhas e colunas",
+      "Filtrar observações"
+    ],
+    "problem": "Uma tabela de estudantes contém turma, horas de estudo e nota. Como selecionar as linhas da turma A?",
+    "concepts": [
+      "pandas é uma biblioteca para trabalhar com dados tabulares. Um DataFrame possui linhas, colunas e um índice. Neste curso cada linha representa um estudante sintético; cada coluna representa uma característica. Uma Series representa uma coluna ou sequência indexada.",
+      "CSV é um arquivo de texto com campos separados por delimitadores. pd.read_csv lê o arquivo; separador e codificação precisam corresponder ao arquivo. head() permite olhar as primeiras linhas; shape informa (linhas, colunas); dtypes informa tipos usados pelo software, que não substituem a classificação estatística.",
+      "df[\"turma\"] seleciona uma coluna. df[\"turma\"] == \"A\" produz uma máscara booleana; df.loc[mascara] seleciona linhas verdadeiras. Este filtro muda o grupo analisado: uma média da turma A não é automaticamente a média de toda a tabela."
+    ],
+    "code": "import pandas as pd\nfrom io import StringIO\ndf = pd.read_csv(StringIO(\"turma,nota\\nA,6\\nA,8\\nB,10\\n\"))\nprint(df.shape)\nprint(df.loc[df[\"turma\"] == \"A\", \"nota\"].mean())",
+    "interpretation": "A tabela tem três linhas e duas colunas. A média da turma A é 7. A turma B fica fora desse cálculo porque o filtro foi explícito.",
+    "mistakes": [
+      "Um caminho de arquivo inexistente gera FileNotFoundError: confira pasta e nome.",
+      "Não conclua o tipo estatístico apenas pelo dtype.",
+      "A contagem de linhas não é sempre a contagem de pessoas únicas."
+    ],
+    "video": "C0aj3FjN5e0",
+    "questions": [
+      {
+        "text": "Quantas linhas tem o DataFrame do exemplo?",
+        "expected": 3,
+        "tolerance": 0.01,
+        "feedback": "shape[0] conta linhas; shape[1] conta colunas.",
+        "hint": "Conte observações, não títulos de coluna.",
+        "solution_code": "pd.DataFrame({\"turma\":[\"A\",\"A\",\"B\"],\"nota\":[6,8,10]}).shape[0]"
+      },
+      {
+        "text": "Execute o filtro da turma A. Qual é a média da coluna nota?",
+        "expected": 7,
+        "tolerance": 0.01,
+        "feedback": "A média usa apenas 6 e 8.",
+        "hint": "A nota 10 pertence à turma B.",
+        "solution_code": "pd.Series([6,8]).mean()"
+      }
+    ],
+    "challenge": "Leia o CSV fornecido no notebook. Inspecione shape, head e dtypes. Selecione a turma B e calcule a média de suas notas válidas, sem preencher valores ausentes.",
+    "solution": "print(df.shape)\nprint(df.head())\nprint(df.dtypes)\nprint(df.loc[df[\"turma\"] == \"B\", \"nota\"].mean())",
+    "hints": [
+      "Use df.loc com uma máscara.",
+      "mean ignora valores ausentes por padrão; declare isso."
+    ],
+    "rubric": [
+      "Tabela carregada e inspecionada.",
+      "Filtro B seleciona o grupo correto.",
+      "Média de notas válidas é 7.2; menciona ausência e tamanho do grupo."
+    ],
+    "summary": "Uma análise começa por entender o que uma linha representa, quais campos existem e quem está incluído no cálculo.",
+    "prerequisites": "Módulos 1 a 2: Organize valores, tipos e listas.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "04-tipos-estatisticos",
+    "title": "Escolha medidas conforme o tipo de variável",
+    "minutes": 50,
+    "objectives": [
+      "Classificar variáveis",
+      "Distinguir códigos de quantidades",
+      "Escolher resumos adequados"
+    ],
+    "problem": "Os estudantes têm identificadores numéricos, turmas e notas. Faz sentido calcular a média dos identificadores?",
+    "concepts": [
+      "Uma variável qualitativa representa categorias. Nominal não tem ordem intrínseca, como turma A/B; ordinal tem ordem, como satisfação baixa/média/alta, sem garantir distâncias iguais entre níveis.",
+      "Uma variável quantitativa representa uma quantidade. Discreta resulta de contagens, como número de faltas; contínua representa medidas em uma escala, como duração. Uma medida registrada em minutos inteiros pode ser discretizada pelo instrumento sem que a duração deixe de ser contínua.",
+      "Um código escrito com dígitos pode continuar sendo nominal: estudante 101 e estudante 102 são identificadores. Uma média desses códigos não descreve uma quantidade substantiva. Para categorias use frequências; para quantidades escolha medidas de centro e dispersão considerando o contexto.",
+      "No Python, uma coluna object pode guardar categorias ou texto numérico. O significado vem da coleta e do dicionário de dados. Leia as unidades e a forma de registro antes de escolher operações."
+    ],
+    "code": "import pandas as pd\ndf = pd.DataFrame({\"id\": [101, 102, 103], \"turma\": [\"A\", \"A\", \"B\"], \"faltas\": [0, 2, 1]})\nprint(df[\"turma\"].value_counts())\nprint(df[\"faltas\"].mean())",
+    "interpretation": "A aparece duas vezes e B uma. A média de faltas é 1. O ID permite identificar registros; sua média não informa aprendizagem.",
+    "mistakes": [
+      "Ordinal não significa que a distância de baixa a média seja igual à de média a alta.",
+      "Nota em escala 0–10 não mede todas as dimensões da aprendizagem.",
+      "Identificadores não devem ser tratados como medidas só porque são inteiros."
+    ],
+    "video": "N5242rBYWfI",
+    "questions": [
+      {
+        "text": "Na tabela resolvida, quantos estudantes estão na categoria A?",
+        "expected": 2,
+        "tolerance": 0.01,
+        "feedback": "Frequência é uma contagem por categoria.",
+        "hint": "Conte as linhas com turma A.",
+        "solution_code": "[\"A\",\"A\",\"B\"].count(\"A\")"
+      },
+      {
+        "text": "Qual é a média de faltas [0, 2, 1]?",
+        "expected": 1,
+        "tolerance": 0.01,
+        "feedback": "Faltas é uma contagem; a média resume essa quantidade, sem identificar cada pessoa.",
+        "hint": "Some as contagens e divida por três.",
+        "solution_code": "mean([0,2,1])"
+      }
+    ],
+    "challenge": "Crie um dicionário de dados para id, turma, horas e nota do CSV. Para cada campo, informe significado, tipo estatístico, unidade ou categorias e um resumo apropriado. Justifique por que não calcular a média de id.",
+    "solution": "print(df.head())\n# id: identificador nominal; turma: categoria nominal\n# horas: duração em horas; nota: pontuação registrada em escala 0–10",
+    "hints": [
+      "Separe tipo Python de significado estatístico.",
+      "Para id, proponha contagem de identificadores distintos."
+    ],
+    "rubric": [
+      "Quatro campos definidos.",
+      "ID e turma classificados como nominais.",
+      "Unidades e limites da escala explicitados."
+    ],
+    "summary": "Você escolhe uma análise pelo significado da variável e distingue categorias, contagens e medidas.",
+    "prerequisites": "Módulos 1 a 3: Leia uma tabela com pandas.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "05-limpeza",
+    "title": "Trate ausências sem inventar observações",
+    "minutes": 65,
+    "objectives": [
+      "Contar ausências",
+      "Distinguir zero de desconhecido",
+      "Documentar uma decisão de limpeza"
+    ],
+    "problem": "Uma nota está em branco. Ela deve ser substituída por zero antes de comparar as turmas?",
+    "concepts": [
+      "Um valor ausente indica que não temos uma observação utilizável naquele campo. Pode resultar de não resposta, falha de registro ou não aplicabilidade. Zero é um valor observado e tem significado próprio; substituir ausência por zero muda esse significado.",
+      "isna() identifica ausências e sum() conta True como 1. dropna(subset=[\"nota\"]) remove somente linhas com ausência em nota. Não descarte linhas por ausências em campos irrelevantes para sua pergunta. Preserve o original em outra variável ou arquivo.",
+      "Preencher com média ou mediana é uma decisão analítica, não uma correção automática. Pode reduzir artificialmente a variabilidade. Excluir também pode introduzir viés se a ausência estiver relacionada ao fenômeno. Informe quantos registros entraram e saíram e por quê.",
+      "Duplicata exata e pessoa duplicada não são a mesma coisa. Um estudante pode ter várias avaliações legítimas. Valide o identificador e a regra de coleta antes de remover registros. Valores extremos exigem investigação, não exclusão por aparência."
+    ],
+    "code": "import pandas as pd\ndf = pd.DataFrame({\"nota\": [0, 8, None, 10]})\nprint(df[\"nota\"].isna().sum())\nvalidas = df.dropna(subset=[\"nota\"]).copy()\nprint(validas[\"nota\"].mean())",
+    "interpretation": "Há uma ausência. A média das três notas observadas é 6. O zero permanece. Se a ausência fosse preenchida com zero, a média cairia para 4.5: outra suposição, outro resultado.",
+    "mistakes": [
+      "fillna(0) pode confundir desconhecido com desempenho nulo.",
+      "dropna() sem subset pode retirar dados úteis.",
+      "Uma tabela limpa ainda pode ter viés de coleta."
+    ],
+    "video": "qKeM93NTKQM",
+    "questions": [
+      {
+        "text": "Quantas notas estão ausentes em [0, 8, None, 10]?",
+        "expected": 1,
+        "tolerance": 0.01,
+        "feedback": "Zero é observado; apenas None representa ausência neste exemplo.",
+        "hint": "Não conte o zero como ausente.",
+        "solution_code": "int(pd.Series([0,8,None,10]).isna().sum())"
+      },
+      {
+        "text": "Qual é a média após excluir apenas a nota ausente?",
+        "expected": 6,
+        "tolerance": 0.01,
+        "feedback": "(0 + 8 + 10) / 3 = 6.",
+        "hint": "Mantenha o zero e use três valores no denominador.",
+        "solution_code": "pd.Series([0,8,None,10]).mean()"
+      }
+    ],
+    "challenge": "No CSV, conte notas ausentes por turma e produza uma cópia com notas válidas. Compare o número de linhas antes e depois. Escreva uma decisão de limpeza e uma limitação, preservando a tabela original.",
+    "solution": "print(df.groupby(\"turma\")[\"nota\"].apply(lambda s: s.isna().sum()))\nvalidas = df.dropna(subset=[\"nota\"]).copy()\nprint(len(df), len(validas))",
+    "hints": [
+      "Agrupe por turma antes de contar ausências.",
+      "Há 12 linhas e duas notas ausentes."
+    ],
+    "rubric": [
+      "Conta uma ausência em cada turma.",
+      "Preserva 12 linhas originais e usa 10 válidas.",
+      "Não apresenta exclusão como solução universal para viés."
+    ],
+    "summary": "Limpar dados exige registrar decisões e reconhecer o que não sabemos.",
+    "prerequisites": "Módulos 1 a 4: Escolha medidas conforme o tipo de variável.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "06-frequencias-graficos",
+    "title": "Transforme contagens em um gráfico legível",
+    "minutes": 65,
+    "objectives": [
+      "Calcular frequências e proporções",
+      "Escolher barras ou histograma",
+      "Rotular um gráfico e interpretá-lo"
+    ],
+    "problem": "Como mostrar a distribuição dos estudantes entre turmas sem induzir uma comparação enganosa?",
+    "concepts": [
+      "Frequência absoluta é a quantidade de observações em uma categoria. Frequência relativa divide essa contagem pelo total considerado. Uma porcentagem multiplica a proporção por 100. Declare o denominador, especialmente quando houver ausências.",
+      "Gráfico de barras compara categorias; histograma agrupa valores quantitativos em intervalos e mostra sua distribuição. Intervalos diferentes podem mudar a aparência de um histograma. Uma categoria numérica como ID continua sendo categoria, não uma escala para histograma.",
+      "Um gráfico precisa de título, rótulos, unidades e uma escala consistente. Em barras de contagem, iniciar o eixo vertical em zero permite comparar comprimentos. Para comparar distribuições, mantenha escalas e intervalos iguais entre grupos.",
+      "Gráfico não explica causas. Conte o que está representado, quem foi incluído e que dados faltam. Descreva o padrão também em texto para quem não consegue acessar a imagem."
+    ],
+    "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nturmas = pd.Series([\"A\", \"A\", \"A\", \"B\"] )\nf = turmas.value_counts().sort_index()\nprint(f)\nprint(f / f.sum() * 100)\nf.plot.bar(title=\"Estudantes sintéticos por turma\", ylabel=\"Estudantes\", xlabel=\"Turma\")\nplt.tight_layout()\nplt.show()",
+    "interpretation": "A tem três estudantes (75%) e B um (25%). Essa distribuição descreve os quatro registros, sem representar necessariamente a distribuição de uma escola.",
+    "mistakes": [
+      "Uma proporção 0.75 corresponde a 75%, não 0.75%.",
+      "Comparar números absolutos de grupos muito diferentes pode ocultar taxas.",
+      "Barras e histograma respondem a perguntas diferentes."
+    ],
+    "video": "vpL_E5nR4Dk",
+    "questions": [
+      {
+        "text": "Qual é a frequência relativa percentual de A no exemplo?",
+        "expected": 75,
+        "tolerance": 0.01,
+        "feedback": "Três de quatro registros: 3 / 4 × 100 = 75%.",
+        "hint": "Informe porcentagem, não proporção.",
+        "solution_code": "3/4*100"
+      },
+      {
+        "text": "Se 6 de 12 estudantes estão em B, qual é a porcentagem?",
+        "expected": 50,
+        "tolerance": 0.01,
+        "feedback": "O denominador é a tabela inteira de 12 estudantes.",
+        "hint": "Divida 6 por 12 e multiplique por 100.",
+        "solution_code": "6/12*100"
+      }
+    ],
+    "challenge": "Crie frequências absolutas e relativas das turmas no CSV e um gráfico de barras com eixo em zero. Depois faça um histograma das notas válidas com intervalos definidos e descreva uma diferença entre os dois gráficos.",
+    "solution": "f = df[\"turma\"].value_counts().sort_index()\nprint(f, f / f.sum() * 100)\nf.plot.bar(title=\"Turmas: dados sintéticos\", xlabel=\"Turma\", ylabel=\"Estudantes\")\nplt.ylim(bottom=0)\nplt.show()\ndf[\"nota\"].dropna().plot.hist(bins=[0,2,4,6,8,10], title=\"Notas válidas: dados sintéticos\")\nplt.xlabel(\"Nota (0–10)\")\nplt.ylabel(\"Frequência\")\nplt.show()",
+    "hints": [
+      "Use value_counts e explicite o total.",
+      "Histogramas contam valores em intervalos; barras contam categorias."
+    ],
+    "rubric": [
+      "Frequências são 6 e 6; proporções 50% e 50%.",
+      "Gráficos incluem título, eixos e origem sintética.",
+      "Descrição textual distingue categorias de intervalos numéricos."
+    ],
+    "summary": "Você constrói uma representação verificável e explica suas escolhas de gráfico e denominador.",
+    "prerequisites": "Módulos 1 a 5: Trate ausências sem inventar observações.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "07-centro-dispersao",
+    "title": "Compare centro e espalhamento",
+    "minutes": 75,
+    "objectives": [
+      "Calcular média, mediana e quantis",
+      "Distinguir desvios amostral e populacional",
+      "Comparar grupos além da média"
+    ],
+    "problem": "Duas turmas têm notas médias iguais. Isso significa que seus resultados são semelhantes?",
+    "concepts": [
+      "Média aritmética considera todos os valores. Mediana divide os dados ordenados em duas metades; com quantidade par, é a média dos dois valores centrais. Um valor extremo afeta fortemente a média, mas pode não mudar a mediana.",
+      "Quantis localizam posições na distribuição. Q1, mediana e Q3 correspondem aos percentis 25, 50 e 75. O intervalo interquartil Q3 − Q1 descreve o espalhamento central. Existem convenções diferentes de interpolação; aqui usamos pandas com interpolação linear.",
+      "Amplitude é máximo menos mínimo. Desvio padrão resume distâncias em torno da média, nas mesmas unidades dos dados. Para descrever toda a população observada, a variância usa divisor n; para estimar variância populacional por uma amostra, usa n − 1. statistics.pstdev usa n, statistics.stdev usa n − 1 e pandas.std usa n − 1 por padrão.",
+      "Centro não substitui distribuição. Uma turma com notas [6,7,7,7,8] e outra com [3,5,7,10,10] têm média 7, mas amplitudes e dispersões diferentes. Com poucos casos, mostre os valores e evite conclusões sobre todas as turmas."
+    ],
+    "code": "from statistics import mean, median, pstdev, stdev\na = [6, 7, 7, 7, 8]\nb = [3, 5, 7, 10, 10]\nprint(mean(a), mean(b))\nprint(max(a)-min(a), max(b)-min(b))\nprint(pstdev(a), pstdev(b))\nprint(stdev(a))",
+    "interpretation": "As médias são 7; amplitudes 2 e 7; desvios populacionais aproximadamente 0.632 e 2.757. O desvio amostral de A é aproximadamente 0.707. Mesma média não significa mesma dispersão.",
+    "mistakes": [
+      "Não compare desvios calculados com divisores diferentes sem explicar.",
+      "Um extremo pode ser real: não apague automaticamente.",
+      "Quartis de amostras pequenas dependem da convenção."
+    ],
+    "video": "373QprSNWnk",
+    "questions": [
+      {
+        "text": "Qual é a amplitude de [3, 5, 7, 10, 10]?",
+        "expected": 7,
+        "tolerance": 0.01,
+        "feedback": "Amplitude é 10 − 3 = 7.",
+        "hint": "Subtraia o mínimo do máximo.",
+        "solution_code": "max([3,5,7,10,10])-min([3,5,7,10,10])"
+      },
+      {
+        "text": "Qual é a mediana de [10, 12, 14, 16, 88]?",
+        "expected": 14,
+        "tolerance": 0.01,
+        "feedback": "O terceiro valor ordenado é 14; a média é 28.",
+        "hint": "Encontre a posição central, não a soma.",
+        "solution_code": "median([10,12,14,16,88])"
+      }
+    ],
+    "challenge": "Compare notas válidas das turmas do CSV por média, mediana, Q1, Q3 e desvio padrão amostral. Faça uma recomendação descritiva e explique por que ela não comprova superioridade pedagógica.",
+    "solution": "validas = df.dropna(subset=[\"nota\"])\nprint(validas.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))\nprint(validas.groupby(\"turma\")[\"nota\"].quantile([.25, .75]))",
+    "hints": [
+      "Use groupby para manter grupos separados.",
+      "Informe ddof=1 ou declare o padrão de std."
+    ],
+    "rubric": [
+      "A: média 7, mediana 7, Q1 7, Q3 7, desvio ≈0.707.",
+      "B: média 7.2, mediana 8, Q1 5, Q3 10, desvio ≈3.114.",
+      "Reconhece poucos casos, ausências e ausência de desenho causal."
+    ],
+    "summary": "Você comunica centro e dispersão conjuntamente, com a convenção de cálculo declarada.",
+    "prerequisites": "Módulos 1 a 6: Transforme contagens em um gráfico legível.",
+    "videos_extra": [
+      "3-Qc8ZTrFXI"
+    ],
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "08-amostragem",
+    "title": "Investigue variabilidade, viés e incerteza",
+    "minutes": 75,
+    "objectives": [
+      "Distinguir população e amostra",
+      "Simular médias amostrais",
+      "Distinguir desvio padrão e erro padrão"
+    ],
+    "problem": "Uma pesquisa ouve apenas quem está on-line à tarde. Aumentar o número de respostas resolve o problema de seleção?",
+    "concepts": [
+      "População é o conjunto sobre o qual queremos concluir; amostra é o conjunto observado. Um processo de seleção determina quem pode entrar. Uma amostra grande por conveniência pode excluir grupos sistematicamente e continuar enviesada.",
+      "Variabilidade amostral é a mudança de uma estatística entre amostras obtidas pelo mesmo desenho. Viés é um desvio sistemático relacionado ao procedimento. Sorteios repetidos ajudam a estudar variabilidade; aumentar n não corrige automaticamente viés de seleção.",
+      "Desvio padrão descreve a dispersão dos valores individuais. Erro padrão descreve a variabilidade de um estimador, como a média, entre amostras. Sob hipóteses de observações independentes de uma população com variância finita, s / sqrt(n) estima o erro padrão da média. Não é uma fórmula universal para qualquer desenho.",
+      "A simulação usa uma população sintética conhecida e uma semente para permitir reprodução. A dispersão das médias sorteadas aproxima o erro padrão nesse experimento. Amostragem sem reposição de uma população finita pode exigir correção; aqui usamos reposição para ilustrar o caso independente. Não estamos construindo um intervalo de confiança neste módulo."
+    ],
+    "code": "from random import Random\nfrom statistics import mean, pstdev\nrng = Random(42)\npopulacao = list(range(10, 110))\nmedias = [mean(rng.choices(populacao, k=5)) for _ in range(200)]\nprint(mean(populacao))\nprint(mean(medias), pstdev(medias))",
+    "interpretation": "A média populacional é 59.5. As 200 médias variam; sua média tende a ficar perto de 59.5. A dispersão delas descreve o estimador, não a dispersão dos cem valores individuais.",
+    "mistakes": [
+      "Ouvir só voluntários não equivale a sorteio aleatório.",
+      "Erro padrão menor não comprova ausência de viés.",
+      "Uma semente reproduz o experimento; não torna a amostra representativa."
+    ],
+    "video": "TV-8D20Ul78",
+    "questions": [
+      {
+        "text": "Qual é a média da população com valores inteiros de 10 até 109?",
+        "expected": 59.5,
+        "tolerance": 0.01,
+        "feedback": "Em uma sequência igualmente espaçada, a média é (10 + 109) / 2.",
+        "hint": "range(10,110) não inclui 110.",
+        "solution_code": "mean(range(10,110))"
+      },
+      {
+        "text": "Para s = 12 e n = 36, qual é s / sqrt(n)?",
+        "expected": 2,
+        "tolerance": 0.01,
+        "feedback": "12 / 6 = 2; esse erro padrão depende das hipóteses apresentadas.",
+        "hint": "sqrt(36) = 6.",
+        "solution_code": "12 / math.sqrt(36)"
+      }
+    ],
+    "challenge": "Simule 500 médias com reposição para n=5 e n=20. Compare as dispersões. Depois calcule a média apenas dos 20 maiores valores da população e explique por que esse recorte introduz seleção.",
+    "solution": "rng = Random(42)\nfor n in [5, 20]:\n    medias = [mean(rng.choices(populacao, k=n)) for _ in range(500)]\n    print(n, pstdev(medias))\nprint(mean(populacao[-20:]))",
+    "hints": [
+      "Use a mesma população para ambos os tamanhos.",
+      "Os 20 maiores valores vão de 90 a 109."
+    ],
+    "rubric": [
+      "Realiza 500 sorteios em cada tamanho.",
+      "Descreve menor dispersão de médias em n=20 neste experimento.",
+      "Média selecionada 99.5; distingue seleção de variabilidade aleatória."
+    ],
+    "summary": "Você explica duas fontes diferentes de erro e evita confundir precisão com representatividade.",
+    "prerequisites": "Módulos 1 a 7: Compare centro e espalhamento.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "09-correlacao",
+    "title": "Interprete associação sem afirmar causalidade",
+    "minutes": 65,
+    "objectives": [
+      "Calcular correlação de Pearson",
+      "Examinar um gráfico de dispersão",
+      "Identificar limites de uma conclusão causal"
+    ],
+    "problem": "Quem estuda mais horas tende a ter nota maior nestes registros. As horas causaram o aumento?",
+    "concepts": [
+      "Correlação de Pearson mede associação linear entre duas variáveis quantitativas. Vai de −1 a 1: o sinal indica direção e o módulo descreve intensidade linear. Correlação zero não exclui uma relação não linear; uma variável constante torna o coeficiente indefinido.",
+      "Um gráfico de dispersão representa cada par (horas, nota). Observe forma, extremos e grupos antes de resumir por um coeficiente. Um único extremo pode alterar muito a correlação. Pares com valores ausentes são excluídos no cálculo usado aqui: declare quais pares entraram.",
+      "Associação não identifica uma causa. Conhecimento prévio, acesso a recursos ou outras características podem influenciar horas e nota. A direção temporal e o desenho de estudo importam. Para sustentar causalidade, precisamos de pressupostos e evidências adicionais.",
+      "Os dados deste curso foram inventados para ensinar. Mesmo uma correlação forte neles não é evidência sobre estudantes reais nem valida uma intervenção educacional."
+    ],
+    "code": "import pandas as pd\nimport matplotlib.pyplot as plt\ndf = pd.DataFrame({\"horas\": [1,2,3,4], \"nota\": [2,4,6,8]})\nprint(df[\"horas\"].corr(df[\"nota\"]))\ndf.plot.scatter(x=\"horas\", y=\"nota\", title=\"Pares sintéticos\")\nplt.show()",
+    "interpretation": "O coeficiente é 1: os quatro pontos seguem uma reta crescente. Isso descreve perfeitamente estes pares, mas não prova que acrescentar uma hora causaria dois pontos a mais.",
+    "mistakes": [
+      "r = 1 não significa aumento de 100% nas notas.",
+      "Não misture grupos sem investigar diferenças.",
+      "Correlação calculada após exclusão de ausências descreve os pares restantes."
+    ],
+    "video": "eRTQ91ba7OI",
+    "questions": [
+      {
+        "text": "Qual é a correlação linear de [1,2,3,4] com [2,4,6,8]?",
+        "expected": 1,
+        "tolerance": 0.01,
+        "feedback": "Os pontos seguem uma reta crescente exata.",
+        "hint": "A segunda variável é duas vezes a primeira.",
+        "solution_code": "pd.Series([1,2,3,4]).corr(pd.Series([2,4,6,8]))"
+      },
+      {
+        "text": "Qual é a correlação linear de [1,2,3] com [6,4,2]?",
+        "expected": -1,
+        "tolerance": 0.01,
+        "feedback": "A relação linear é decrescente. O sinal negativo informa direção.",
+        "hint": "À medida que x aumenta, y cai em proporção constante.",
+        "solution_code": "pd.Series([1,2,3]).corr(pd.Series([6,4,2]))"
+      }
+    ],
+    "challenge": "No CSV, selecione pares válidos de horas e nota, informe seu número, faça um gráfico e calcule Pearson. Escreva uma conclusão descritiva e duas explicações alternativas para a associação.",
+    "solution": "pares = df.dropna(subset=[\"horas\", \"nota\"])\nprint(len(pares))\nprint(pares[\"horas\"].corr(pares[\"nota\"]))\npares.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()",
+    "hints": [
+      "Não substitua notas ausentes por zero.",
+      "Separe descrição da associação de explicação de causa."
+    ],
+    "rubric": [
+      "Analisa 10 pares válidos; r ≈0.804.",
+      "Gráfico contém unidades e origem sintética.",
+      "Conclusão não causal e duas alternativas plausíveis."
+    ],
+    "summary": "Você descreve associação com dados e preserva o limite entre observar e explicar.",
+    "prerequisites": "Módulos 1 a 8: Investigue variabilidade, viés e incerteza.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ]
+  },
+  {
+    "slug": "10-projeto",
+    "title": "Entregue uma análise que outra pessoa possa revisar",
+    "minutes": 120,
+    "objectives": [
+      "Formular uma pergunta analisável",
+      "Integrar limpeza, medidas e gráficos",
+      "Entregar notebook e conclusão com limitações"
+    ],
+    "problem": "Uma equipe quer comparar duas turmas. Que relatório permite conferir a análise e entender seus limites?",
+    "concepts": [
+      "Uma pergunta analisável explicita população ou grupo, variáveis e comparação. \"Como se distribuem as notas válidas de A e B neste conjunto sintético?\" pode ser respondida. \"Qual professor ensina melhor?\" exige dados e desenho que este conjunto não oferece.",
+      "Uma análise reproduzível conserva a origem dos dados, explica decisões e executa do início ao fim. Registre os denominadores após limpeza, as unidades, os métodos e as convenções. Organize o notebook em pergunta, dados, preparação, análise, interpretação e limites.",
+      "Uma conclusão útil liga números à pergunta. Diga o que foi observado, que alternativas permanecem e o que seria necessário investigar a seguir. Evite atribuir causalidade, generalizar para escolas reais ou reduzir aprendizagem a uma nota.",
+      "A revisão combina verificações técnicas e rubrica humana. Código que executa é necessário, mas não garante boa pergunta ou interpretação. Aqui as respostas abertas recebem autoavaliação orientada; não há avaliação automática de sua qualidade nem certificado de domínio."
+    ],
+    "code": "import pandas as pd\nfrom io import StringIO\ndf = pd.read_csv(StringIO(\"turma,nota\\nA,6\\nA,8\\nB,5\\nB,9\\n\"))\nprint(df.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))",
+    "interpretation": "Neste pequeno exemplo ambas as médias são 7, mas B tem maior dispersão amostral. A comparação é descritiva; quatro registros não sustentam conclusões gerais.",
+    "mistakes": [
+      "Um gráfico sem origem ou denominador dificulta revisão.",
+      "Concluir que uma turma é melhor extrapola a pergunta.",
+      "Não entregue apenas saídas: explique decisões e limitações."
+    ],
+    "video": "kCMaqla6Grs",
+    "questions": [
+      {
+        "text": "Quantos registros existem no exemplo resolvido do projeto?",
+        "expected": 4,
+        "tolerance": 0.01,
+        "feedback": "São duas observações em cada turma.",
+        "hint": "Conte as linhas de dados, sem o cabeçalho.",
+        "solution_code": "len([6,8,5,9])"
+      },
+      {
+        "text": "Qual é a diferença entre as médias das duas turmas do exemplo?",
+        "expected": 0,
+        "tolerance": 0.01,
+        "feedback": "Ambas são 7; a igualdade das médias não garante igualdade das distribuições.",
+        "hint": "Calcule (6+8)/2 e (5+9)/2.",
+        "solution_code": "mean([6,8])-mean([5,9])"
+      }
+    ],
+    "challenge": "Use o notebook inicial e o CSV sintético para responder como se distribuem as notas válidas por turma. Entregue uma tabela de resumos, dois gráficos relevantes e uma conclusão de 100–180 palavras com números, decisões de limpeza e pelo menos três limitações. Inclua uma pergunta para futura coleta de dados.",
+    "solution": "validas = df.dropna(subset=[\"nota\"]).copy()\nprint(validas.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))\nvalidas.boxplot(column=\"nota\", by=\"turma\")\nplt.suptitle(\"\")\nplt.title(\"Notas válidas por turma: dados sintéticos\")\nplt.ylabel(\"Nota (0–10)\")\nplt.show()\nvalidas.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()",
+    "hints": [
+      "Comece pela pergunta e pela unidade de observação.",
+      "Use as decisões e convenções dos módulos anteriores."
+    ],
+    "rubric": [
+      "Pergunta explícita e compatível com os dados.",
+      "Origem sintética, dicionário de dados e limpeza documentados.",
+      "Tabela com contagens, centro e dispersão corretos.",
+      "Dois gráficos legíveis com descrição textual.",
+      "Conclusão responde à pergunta e apresenta três limitações.",
+      "Notebook executa do início ao fim e propõe próxima coleta."
+    ],
+    "summary": "Você reuniu evidências em uma entrega revisável. Use a rubrica para melhorar o relatório; marcar conclusão não certifica competência.",
+    "prerequisites": "Módulos 1 a 9: Interprete associação sem afirmar causalidade.",
+    "guided_steps": [
+      "Execute o exemplo resolvido e compare cada saída com a interpretação.",
+      "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
+      "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
+    ],
+    "solution_text": "Neste conjunto sintético, as dez notas válidas têm médias de 7 na turma A e 7,2 na B. As medianas são 7 e 8. A turma B apresenta maior dispersão amostral, com desvio padrão de aproximadamente 3,11, enquanto A tem cerca de 0,71. Excluí somente as duas linhas sem nota para os resumos de desempenho, mantendo o arquivo original. Cada turma contribuiu com cinco notas válidas. Essa decisão não garante ausência de viés: não sabemos por que as notas faltam. Os dados foram inventados, há poucos registros e a nota representa apenas uma dimensão do desempenho. Portanto, esta comparação não permite identificar uma turma ou professor melhor nem concluir que mais horas causam notas maiores. Para uma coleta futura, investigaria como os critérios de avaliação e as condições de estudo diferem entre turmas."
+  }
+]

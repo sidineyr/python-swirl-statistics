@@ -1,3 +1,10 @@
+# Reconstrução do curso on-line — 2026-10-08
+
+- Dez módulos, vídeos complementares, exemplos e desafios concretos.
+- Vinte notebooks com Python real, CSV sintético e projeto final com rubrica.
+- Progresso web exportável, visita separada de conclusão e preservação da CLI.
+- Testes de notebooks, navegação DOM e referências numéricas; limites registrados.
+
 # Histórico de alterações
 
 ## Revisão 2 · 2026-10-07
