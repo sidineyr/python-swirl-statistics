@@ -26,7 +26,7 @@
       {
         "text": "Preveja e depois execute: qual é a saída numérica de 12 + 6 / 3?",
         "expected": 14,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "A divisão ocorre antes da soma: 12 + 2 = 14.",
         "hint": "Calcule 6 / 3 primeiro.",
         "solution_code": "12 + 6 / 3"
@@ -34,14 +34,14 @@
       {
         "text": "Corrija print(36 / 4 removendo o erro de sintaxe. Qual resultado aparece?",
         "expected": 9,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Faltava fechar o parêntese; corrigir a sintaxe permite executar a divisão.",
         "hint": "Feche o parêntese da função print.",
         "solution_code": "36 / 4"
       }
     ],
     "challenge": "Uma nova oficina tem 54 cadernos e 6 grupos. No notebook, escreva um comentário, calcule a quantidade por grupo e explique a hipótese da distribuição.",
-    "solution": "print(54 / 6)",
+    "solution": "# Distribuímos 54 cadernos igualmente entre 6 grupos.\nprint(54 / 6)",
     "hints": [
       "Divida o total pela quantidade de grupos.",
       "Use / dentro de print()."
@@ -57,7 +57,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Uma célula mostra SyntaxError em print(36 / 4. O que deve ser corrigido?",
+      "options": [
+        "Fechar o parêntese: print(36 / 4).",
+        "Trocar 36 por 9 sem corrigir a sintaxe.",
+        "Digitar somente o resultado na célula."
+      ],
+      "correct": 0,
+      "feedback": "Corrigir a instrução permite que Python execute o procedimento; informar a resposta não corrige o código."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Código executa e retorna 9.0.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Código executa e retorna 9.0. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Comentário esclarece o cálculo.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Comentário esclarece o cálculo. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Texto informa a unidade e a hipótese de divisão igual.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Texto informa a unidade e a hipótese de divisão igual. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "Cada grupo recebe nove cadernos. A unidade é cadernos por grupo; a hipótese é divisão igual entre seis grupos, não uma distribuição observada."
   },
   {
     "slug": "02-variaveis-listas",
@@ -86,7 +114,7 @@
       {
         "text": "Qual é o primeiro elemento de [5, 15, 25] usando o índice correto?",
         "expected": 5,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "O índice 0 acessa o primeiro elemento.",
         "hint": "A contagem de posições começa em zero.",
         "solution_code": "[5,15,25][0]"
@@ -94,7 +122,7 @@
       {
         "text": "Complete sum(tempos) / ___ para [5, 15, 25]. Qual é a média?",
         "expected": 15,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Dividir por len(tempos) acompanha a quantidade de observações.",
         "hint": "São três valores, cuja soma é 45.",
         "solution_code": "sum([5,15,25])/len([5,15,25])"
@@ -112,12 +140,40 @@
       "Interpretação preserva diferenças individuais."
     ],
     "summary": "Agora você representa observações em uma estrutura reutilizável e distingue a característica estudada do nome usado no código.",
-    "prerequisites": "Módulos 1 a 1: Execute seu primeiro cálculo.",
+    "prerequisites": "Módulo 1: Execute seu primeiro cálculo.",
     "guided_steps": [
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Qual expressão soma dois números e retorna 12?",
+      "options": [
+        "\"10\" + \"2\"",
+        "int(\"10\") + 2",
+        "\"10\" + 2"
+      ],
+      "correct": 1,
+      "feedback": "Textos concatenam; texto com inteiro gera erro. A conversão explícita permite a soma."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Duas expressões retornam 30.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Duas expressões retornam 30. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Tipos numéricos são usados.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Tipos numéricos são usados. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Interpretação preserva diferenças individuais.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Interpretação preserva diferenças individuais. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "As duas expressões retornam 30 minutos. Nenhuma pessoa da lista estudou exatamente 30 minutos: o resumo não substitui os valores individuais."
   },
   {
     "slug": "03-pandas",
@@ -132,7 +188,8 @@
     "concepts": [
       "pandas é uma biblioteca para trabalhar com dados tabulares. Um DataFrame possui linhas, colunas e um índice. Neste curso cada linha representa um estudante sintético; cada coluna representa uma característica. Uma Series representa uma coluna ou sequência indexada.",
       "CSV é um arquivo de texto com campos separados por delimitadores. pd.read_csv lê o arquivo; separador e codificação precisam corresponder ao arquivo. head() permite olhar as primeiras linhas; shape informa (linhas, colunas); dtypes informa tipos usados pelo software, que não substituem a classificação estatística.",
-      "df[\"turma\"] seleciona uma coluna. df[\"turma\"] == \"A\" produz uma máscara booleana; df.loc[mascara] seleciona linhas verdadeiras. Este filtro muda o grupo analisado: uma média da turma A não é automaticamente a média de toda a tabela."
+      "df[\"turma\"] seleciona uma coluna. df[\"turma\"] == \"A\" produz uma máscara booleana; df.loc[mascara] seleciona linhas verdadeiras. Este filtro muda o grupo analisado: uma média da turma A não é automaticamente a média de toda a tabela.",
+      "import pandas as pd carrega a biblioteca com o nome curto pd. StringIO transforma texto em um arquivo em memória: neste exemplo não há download. Primeiro leia a tabela; depois execute df[\"turma\"] == \"A\" sozinho para observar True e False; por fim use essa máscara em df.loc. Cada etapa pode ser executada em uma célula separada."
     ],
     "code": "import pandas as pd\nfrom io import StringIO\ndf = pd.read_csv(StringIO(\"turma,nota\\nA,6\\nA,8\\nB,10\\n\"))\nprint(df.shape)\nprint(df.loc[df[\"turma\"] == \"A\", \"nota\"].mean())",
     "interpretation": "A tabela tem três linhas e duas colunas. A média da turma A é 7. A turma B fica fora desse cálculo porque o filtro foi explícito.",
@@ -146,7 +203,7 @@
       {
         "text": "Quantas linhas tem o DataFrame do exemplo?",
         "expected": 3,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "shape[0] conta linhas; shape[1] conta colunas.",
         "hint": "Conte observações, não títulos de coluna.",
         "solution_code": "pd.DataFrame({\"turma\":[\"A\",\"A\",\"B\"],\"nota\":[6,8,10]}).shape[0]"
@@ -154,14 +211,14 @@
       {
         "text": "Execute o filtro da turma A. Qual é a média da coluna nota?",
         "expected": 7,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "A média usa apenas 6 e 8.",
         "hint": "A nota 10 pertence à turma B.",
         "solution_code": "pd.Series([6,8]).mean()"
       }
     ],
     "challenge": "Leia o CSV fornecido no notebook. Inspecione shape, head e dtypes. Selecione a turma B e calcule a média de suas notas válidas, sem preencher valores ausentes.",
-    "solution": "print(df.shape)\nprint(df.head())\nprint(df.dtypes)\nprint(df.loc[df[\"turma\"] == \"B\", \"nota\"].mean())",
+    "solution": "print(df.shape)\nprint(df.head())\nprint(df.dtypes)\nprint(df.loc[df[\"turma\"] == \"B\", \"nota\"].mean())\nprint(\"Registros de B:\", (df[\"turma\"] == \"B\").sum())\nprint(\"Notas válidas em B:\", df.loc[df[\"turma\"] == \"B\", \"nota\"].count())",
     "hints": [
       "Use df.loc com uma máscara.",
       "mean ignora valores ausentes por padrão; declare isso."
@@ -177,7 +234,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "O filtro seleciona apenas A. A média calculada descreve quem?",
+      "options": [
+        "Toda a escola.",
+        "Somente os registros selecionados da turma A.",
+        "Todas as pessoas que não responderam."
+      ],
+      "correct": 1,
+      "feedback": "O filtro define o grupo e o denominador; os dados não autorizam generalização."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Tabela carregada e inspecionada.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Tabela carregada e inspecionada. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Filtro B seleciona o grupo correto.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Filtro B seleciona o grupo correto. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Média de notas válidas é 7.2; menciona ausência e tamanho do grupo.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Média de notas válidas é 7.2; menciona ausência e tamanho do grupo. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "A turma B tem seis registros, cinco notas válidas e uma nota ausente. A média 7,2 usa as cinco notas observadas; não preenchemos a ausência e não generalizamos para pessoas reais."
   },
   {
     "slug": "04-tipos-estatisticos",
@@ -207,7 +292,7 @@
       {
         "text": "Na tabela resolvida, quantos estudantes estão na categoria A?",
         "expected": 2,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Frequência é uma contagem por categoria.",
         "hint": "Conte as linhas com turma A.",
         "solution_code": "[\"A\",\"A\",\"B\"].count(\"A\")"
@@ -215,14 +300,14 @@
       {
         "text": "Qual é a média de faltas [0, 2, 1]?",
         "expected": 1,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Faltas é uma contagem; a média resume essa quantidade, sem identificar cada pessoa.",
         "hint": "Some as contagens e divida por três.",
         "solution_code": "mean([0,2,1])"
       }
     ],
     "challenge": "Crie um dicionário de dados para id, turma, horas e nota do CSV. Para cada campo, informe significado, tipo estatístico, unidade ou categorias e um resumo apropriado. Justifique por que não calcular a média de id.",
-    "solution": "print(df.head())\n# id: identificador nominal; turma: categoria nominal\n# horas: duração em horas; nota: pontuação registrada em escala 0–10",
+    "solution": "dicionario = pd.DataFrame([\n    [\"id\", \"Identificador do registro\", \"nominal\", \"sem unidade\", \"nunique\"],\n    [\"turma\", \"Grupo do estudante sintético\", \"nominal\", \"A ou B\", \"value_counts\"],\n    [\"horas\", \"Duração de estudo\", \"quantitativa contínua registrada em horas inteiras\", \"horas\", \"média e desvio\"],\n    [\"nota\", \"Pontuação sintética\", \"quantitativa em escala registrada\", \"0 a 10\", \"mediana e quartis\"]\n], columns=[\"campo\", \"significado\", \"tipo estatístico\", \"unidade/categorias\", \"resumo\"])\nprint(dicionario.to_string(index=False))\nprint(\"IDs distintos:\", df[\"id\"].nunique())\nprint(\"Não calculamos média de id: identifica registros e não mede desempenho.\")",
     "hints": [
       "Separe tipo Python de significado estatístico.",
       "Para id, proponha contagem de identificadores distintos."
@@ -238,7 +323,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Um ID 0012 identifica uma pessoa. Que resumo faz sentido?",
+      "options": [
+        "Média dos IDs para resumir desempenho.",
+        "Contagem de IDs distintos para verificar pessoas registradas.",
+        "Histograma de IDs para medir aprendizagem."
+      ],
+      "correct": 1,
+      "feedback": "ID é identificador nominal: dígitos não o transformam em quantidade."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Quatro campos definidos.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Quatro campos definidos. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "ID e turma classificados como nominais.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "ID e turma classificados como nominais. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Unidades e limites da escala explicitados.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Unidades e limites da escala explicitados. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "O ID e a turma são nominais. As horas medem duração; o registro em inteiros não muda o fenômeno medido. A nota é uma pontuação definida em escala de 0 a 10, sem representar toda a aprendizagem. O tipo usado pelo software não determina sozinho o significado estatístico."
   },
   {
     "slug": "05-limpeza",
@@ -268,7 +381,7 @@
       {
         "text": "Quantas notas estão ausentes em [0, 8, None, 10]?",
         "expected": 1,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Zero é observado; apenas None representa ausência neste exemplo.",
         "hint": "Não conte o zero como ausente.",
         "solution_code": "int(pd.Series([0,8,None,10]).isna().sum())"
@@ -276,7 +389,7 @@
       {
         "text": "Qual é a média após excluir apenas a nota ausente?",
         "expected": 6,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "(0 + 8 + 10) / 3 = 6.",
         "hint": "Mantenha o zero e use três valores no denominador.",
         "solution_code": "pd.Series([0,8,None,10]).mean()"
@@ -299,7 +412,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Há duas notas ausentes. Qual decisão pode ser defendida?",
+      "options": [
+        "Substituir sempre por zero.",
+        "Excluir sem informar quantas linhas saíram.",
+        "Preservar o original, explicar a análise de notas válidas e reconhecer possível viés."
+      ],
+      "correct": 2,
+      "feedback": "Nem exclusão nem preenchimento garantem ausência de viés; registre o efeito e a limitação."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Conta uma ausência em cada turma.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Conta uma ausência em cada turma. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Preserva 12 linhas originais e usa 10 válidas.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Preserva 12 linhas originais e usa 10 válidas. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Não apresenta exclusão como solução universal para viés.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Não apresenta exclusão como solução universal para viés. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "Há uma nota ausente em cada turma. Preservamos df com 12 registros e criamos validas com 10. A ausência pode estar relacionada ao desempenho, então excluir não garante ausência de viés."
   },
   {
     "slug": "06-frequencias-graficos",
@@ -329,7 +470,7 @@
       {
         "text": "Qual é a frequência relativa percentual de A no exemplo?",
         "expected": 75,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Três de quatro registros: 3 / 4 × 100 = 75%.",
         "hint": "Informe porcentagem, não proporção.",
         "solution_code": "3/4*100"
@@ -337,7 +478,7 @@
       {
         "text": "Se 6 de 12 estudantes estão em B, qual é a porcentagem?",
         "expected": 50,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "O denominador é a tabela inteira de 12 estudantes.",
         "hint": "Divida 6 por 12 e multiplique por 100.",
         "solution_code": "6/12*100"
@@ -360,7 +501,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Um gráfico de barras de contagens começa em 5 e faz 6 parecer duas vezes 5. O que revisar?",
+      "options": [
+        "Usar eixo iniciando em zero e informar as contagens.",
+        "Retirar os rótulos.",
+        "Trocar a cor sem revisar a escala."
+      ],
+      "correct": 0,
+      "feedback": "Comprimentos de barras de contagem precisam de uma origem comum em zero."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Frequências são 6 e 6; proporções 50% e 50%.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Frequências são 6 e 6; proporções 50% e 50%. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Gráficos incluem título, eixos e origem sintética.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Gráficos incluem título, eixos e origem sintética. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Descrição textual distingue categorias de intervalos numéricos.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Descrição textual distingue categorias de intervalos numéricos. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "As turmas têm seis registros cada: 50% de 12. O histograma usa dez notas válidas, com intervalos explícitos. Barras comparam categorias; histograma mostra contagens por intervalo de nota. Notas ausentes não são zero."
   },
   {
     "slug": "07-centro-dispersao",
@@ -390,7 +559,7 @@
       {
         "text": "Qual é a amplitude de [3, 5, 7, 10, 10]?",
         "expected": 7,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Amplitude é 10 − 3 = 7.",
         "hint": "Subtraia o mínimo do máximo.",
         "solution_code": "max([3,5,7,10,10])-min([3,5,7,10,10])"
@@ -398,7 +567,7 @@
       {
         "text": "Qual é a mediana de [10, 12, 14, 16, 88]?",
         "expected": 14,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "O terceiro valor ordenado é 14; a média é 28.",
         "hint": "Encontre a posição central, não a soma.",
         "solution_code": "median([10,12,14,16,88])"
@@ -424,7 +593,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Duas turmas têm média 7 e desvios 0,7 e 3,1. O que concluir?",
+      "options": [
+        "As distribuições são iguais.",
+        "A segunda tem maior espalhamento, sem provar superioridade pedagógica.",
+        "O desvio é o erro padrão da média."
+      ],
+      "correct": 1,
+      "feedback": "Centro e dispersão descrevem aspectos diferentes. Não estabelecem qualidade de ensino."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "A: média 7, mediana 7, Q1 7, Q3 7, desvio ≈0.707.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "A: média 7, mediana 7, Q1 7, Q3 7, desvio ≈0.707. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "B: média 7.2, mediana 8, Q1 5, Q3 10, desvio ≈3.114.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "B: média 7.2, mediana 8, Q1 5, Q3 10, desvio ≈3.114. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Reconhece poucos casos, ausências e ausência de desenho causal.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Reconhece poucos casos, ausências e ausência de desenho causal. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "No CSV: A tem média 7, mediana 7, Q1 7, Q3 7 e desvio amostral aproximadamente 0,707; B tem média 7,2, mediana 8, Q1 5, Q3 10 e desvio aproximadamente 3,114. B apresenta maior dispersão. Há cinco notas válidas por turma, duas ausências no total e nenhum desenho causal para avaliar ensino."
   },
   {
     "slug": "08-amostragem",
@@ -440,9 +637,10 @@
       "População é o conjunto sobre o qual queremos concluir; amostra é o conjunto observado. Um processo de seleção determina quem pode entrar. Uma amostra grande por conveniência pode excluir grupos sistematicamente e continuar enviesada.",
       "Variabilidade amostral é a mudança de uma estatística entre amostras obtidas pelo mesmo desenho. Viés é um desvio sistemático relacionado ao procedimento. Sorteios repetidos ajudam a estudar variabilidade; aumentar n não corrige automaticamente viés de seleção.",
       "Desvio padrão descreve a dispersão dos valores individuais. Erro padrão descreve a variabilidade de um estimador, como a média, entre amostras. Sob hipóteses de observações independentes de uma população com variância finita, s / sqrt(n) estima o erro padrão da média. Não é uma fórmula universal para qualquer desenho.",
-      "A simulação usa uma população sintética conhecida e uma semente para permitir reprodução. A dispersão das médias sorteadas aproxima o erro padrão nesse experimento. Amostragem sem reposição de uma população finita pode exigir correção; aqui usamos reposição para ilustrar o caso independente. Não estamos construindo um intervalo de confiança neste módulo."
+      "A simulação usa uma população sintética conhecida e uma semente para permitir reprodução. A dispersão das médias sorteadas aproxima o erro padrão nesse experimento. Amostragem sem reposição de uma população finita pode exigir correção; aqui usamos reposição para ilustrar o caso independente. Não estamos construindo um intervalo de confiança neste módulo.",
+      "Um laço repete um procedimento. Em medias = [mean(rng.choices(populacao, k=5)) for _ in range(200)], range(200) define 200 repetições; _ indica que o contador não será usado; choices sorteia cinco valores com reposição; mean calcula uma média a cada repetição. Leia o equivalente expandido abaixo antes de alterar n."
     ],
-    "code": "from random import Random\nfrom statistics import mean, pstdev\nrng = Random(42)\npopulacao = list(range(10, 110))\nmedias = [mean(rng.choices(populacao, k=5)) for _ in range(200)]\nprint(mean(populacao))\nprint(mean(medias), pstdev(medias))",
+    "code": "from random import Random\nfrom statistics import mean, pstdev\nrng = Random(42)\npopulacao = list(range(10, 110))\nmedias = []\nfor repeticao in range(200):\n    amostra = rng.choices(populacao, k=5)\n    medias.append(mean(amostra))\nprint(mean(populacao))\nprint(mean(medias), pstdev(medias))",
     "interpretation": "A média populacional é 59.5. As 200 médias variam; sua média tende a ficar perto de 59.5. A dispersão delas descreve o estimador, não a dispersão dos cem valores individuais.",
     "mistakes": [
       "Ouvir só voluntários não equivale a sorteio aleatório.",
@@ -454,7 +652,7 @@
       {
         "text": "Qual é a média da população com valores inteiros de 10 até 109?",
         "expected": 59.5,
-        "tolerance": 0.01,
+        "tolerance": 0.001,
         "feedback": "Em uma sequência igualmente espaçada, a média é (10 + 109) / 2.",
         "hint": "range(10,110) não inclui 110.",
         "solution_code": "mean(range(10,110))"
@@ -462,7 +660,7 @@
       {
         "text": "Para s = 12 e n = 36, qual é s / sqrt(n)?",
         "expected": 2,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "12 / 6 = 2; esse erro padrão depende das hipóteses apresentadas.",
         "hint": "sqrt(36) = 6.",
         "solution_code": "12 / math.sqrt(36)"
@@ -485,7 +683,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Uma pesquisa ouve só voluntários on-line. Dobrar as respostas garante representatividade?",
+      "options": [
+        "Sim, tamanho elimina qualquer viés.",
+        "Não: grupos excluídos pelo recrutamento podem continuar ausentes.",
+        "Sim, se houver semente aleatória."
+      ],
+      "correct": 1,
+      "feedback": "Mais precisão em uma seleção enviesada não corrige quem ficou fora."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Realiza 500 sorteios em cada tamanho.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Realiza 500 sorteios em cada tamanho. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Descreve menor dispersão de médias em n=20 neste experimento.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Descreve menor dispersão de médias em n=20 neste experimento. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Média selecionada 99.5; distingue seleção de variabilidade aleatória.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Média selecionada 99.5; distingue seleção de variabilidade aleatória. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "O experimento realiza 500 médias para cada tamanho. A dispersão das médias de n=20 é menor neste experimento. O recorte dos vinte maiores valores tem média 99,5, acima da média populacional 59,5 por seleção. A semente permite reprodução e não elimina viés."
   },
   {
     "slug": "09-correlacao",
@@ -501,7 +727,8 @@
       "Correlação de Pearson mede associação linear entre duas variáveis quantitativas. Vai de −1 a 1: o sinal indica direção e o módulo descreve intensidade linear. Correlação zero não exclui uma relação não linear; uma variável constante torna o coeficiente indefinido.",
       "Um gráfico de dispersão representa cada par (horas, nota). Observe forma, extremos e grupos antes de resumir por um coeficiente. Um único extremo pode alterar muito a correlação. Pares com valores ausentes são excluídos no cálculo usado aqui: declare quais pares entraram.",
       "Associação não identifica uma causa. Conhecimento prévio, acesso a recursos ou outras características podem influenciar horas e nota. A direção temporal e o desenho de estudo importam. Para sustentar causalidade, precisamos de pressupostos e evidências adicionais.",
-      "Os dados deste curso foram inventados para ensinar. Mesmo uma correlação forte neles não é evidência sobre estudantes reais nem valida uma intervenção educacional."
+      "Os dados deste curso foram inventados para ensinar. Mesmo uma correlação forte neles não é evidência sobre estudantes reais nem valida uma intervenção educacional.",
+      "Experimento adicional: x=[-2,-1,0,1,2] e y=[4,1,0,1,4] formam uma curva em U, embora Pearson seja zero. Compare também a correlação de [1,2,3,4,5] com [1,2,3,4,0] antes e depois de retirar o último par; retirar um ponto exige justificativa, não deve ser uma maneira de obter o coeficiente desejado."
     ],
     "code": "import pandas as pd\nimport matplotlib.pyplot as plt\ndf = pd.DataFrame({\"horas\": [1,2,3,4], \"nota\": [2,4,6,8]})\nprint(df[\"horas\"].corr(df[\"nota\"]))\ndf.plot.scatter(x=\"horas\", y=\"nota\", title=\"Pares sintéticos\")\nplt.show()",
     "interpretation": "O coeficiente é 1: os quatro pontos seguem uma reta crescente. Isso descreve perfeitamente estes pares, mas não prova que acrescentar uma hora causaria dois pontos a mais.",
@@ -515,7 +742,7 @@
       {
         "text": "Qual é a correlação linear de [1,2,3,4] com [2,4,6,8]?",
         "expected": 1,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Os pontos seguem uma reta crescente exata.",
         "hint": "A segunda variável é duas vezes a primeira.",
         "solution_code": "pd.Series([1,2,3,4]).corr(pd.Series([2,4,6,8]))"
@@ -523,14 +750,14 @@
       {
         "text": "Qual é a correlação linear de [1,2,3] com [6,4,2]?",
         "expected": -1,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "A relação linear é decrescente. O sinal negativo informa direção.",
         "hint": "À medida que x aumenta, y cai em proporção constante.",
         "solution_code": "pd.Series([1,2,3]).corr(pd.Series([6,4,2]))"
       }
     ],
     "challenge": "No CSV, selecione pares válidos de horas e nota, informe seu número, faça um gráfico e calcule Pearson. Escreva uma conclusão descritiva e duas explicações alternativas para a associação.",
-    "solution": "pares = df.dropna(subset=[\"horas\", \"nota\"])\nprint(len(pares))\nprint(pares[\"horas\"].corr(pares[\"nota\"]))\npares.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()",
+    "solution": "pares = df.dropna(subset=[\"horas\", \"nota\"])\nprint(len(pares))\nprint(pares[\"horas\"].corr(pares[\"nota\"]))\npares.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()\ncurva = pd.DataFrame({\"x\": [-2,-1,0,1,2], \"y\": [4,1,0,1,4]})\nprint(\"Curva em U, Pearson:\", curva[\"x\"].corr(curva[\"y\"]))\nextremo = pd.DataFrame({\"x\": [1,2,3,4,5], \"y\": [1,2,3,4,0]})\nprint(\"Com último par:\", extremo[\"x\"].corr(extremo[\"y\"]))\nprint(\"Sem último par, apenas análise de sensibilidade:\", extremo.iloc[:-1][\"x\"].corr(extremo.iloc[:-1][\"y\"]))\nprint(\"Omissão não autoriza escolher o resultado conveniente. Conhecimento prévio e acesso a recursos são explicações alternativas.\")",
     "hints": [
       "Não substitua notas ausentes por zero.",
       "Separe descrição da associação de explicação de causa."
@@ -546,7 +773,35 @@
       "Execute o exemplo resolvido e compare cada saída com a interpretação.",
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
-    ]
+    ],
+    "concept_question": {
+      "text": "Horas e notas têm r = 0,804. Qual conclusão os registros permitem?",
+      "options": [
+        "Mais horas necessariamente causam notas melhores.",
+        "Há associação linear nos pares válidos; conhecimento prévio pode influenciar ambas.",
+        "80,4% dos estudantes aprenderam por causa das horas."
+      ],
+      "correct": 1,
+      "feedback": "Correlação não identifica uma causa nem representa uma porcentagem de estudantes."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Analisa 10 pares válidos; r ≈0.804.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Analisa 10 pares válidos; r ≈0.804. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Gráfico contém unidades e origem sintética.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Gráfico contém unidades e origem sintética. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Conclusão não causal e duas alternativas plausíveis.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Conclusão não causal e duas alternativas plausíveis. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ],
+    "solution_text": "Nos dez pares válidos, Pearson é aproximadamente 0,804 e a dispersão mostra associação crescente. Conhecimento prévio e acesso a recursos podem afetar horas e notas. Os pontos são sintéticos e a associação não estabelece efeito causal. O exemplo em U demonstra que Pearson zero não significa ausência de relação."
   },
   {
     "slug": "10-projeto",
@@ -562,7 +817,8 @@
       "Uma pergunta analisável explicita população ou grupo, variáveis e comparação. \"Como se distribuem as notas válidas de A e B neste conjunto sintético?\" pode ser respondida. \"Qual professor ensina melhor?\" exige dados e desenho que este conjunto não oferece.",
       "Uma análise reproduzível conserva a origem dos dados, explica decisões e executa do início ao fim. Registre os denominadores após limpeza, as unidades, os métodos e as convenções. Organize o notebook em pergunta, dados, preparação, análise, interpretação e limites.",
       "Uma conclusão útil liga números à pergunta. Diga o que foi observado, que alternativas permanecem e o que seria necessário investigar a seguir. Evite atribuir causalidade, generalizar para escolas reais ou reduzir aprendizagem a uma nota.",
-      "A revisão combina verificações técnicas e rubrica humana. Código que executa é necessário, mas não garante boa pergunta ou interpretação. Aqui as respostas abertas recebem autoavaliação orientada; não há avaliação automática de sua qualidade nem certificado de domínio."
+      "A revisão combina verificações técnicas e rubrica humana. Código que executa é necessário, mas não garante boa pergunta ou interpretação. Aqui as respostas abertas recebem autoavaliação orientada; não há avaliação automática de sua qualidade nem certificado de domínio.",
+      "No boxplot, a linha central é a mediana, a caixa vai de Q1 a Q3 e os bigodes seguem a convenção do matplotlib (até 1,5 intervalos interquartis além da caixa, limitados aos valores observados). Pontos além dos bigodes são destacados; não são automaticamente erros. Quando Q1 e Q3 são iguais, a caixa pode ficar achatada. Com cinco notas por turma, mostre também os valores individuais."
     ],
     "code": "import pandas as pd\nfrom io import StringIO\ndf = pd.read_csv(StringIO(\"turma,nota\\nA,6\\nA,8\\nB,5\\nB,9\\n\"))\nprint(df.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))",
     "interpretation": "Neste pequeno exemplo ambas as médias são 7, mas B tem maior dispersão amostral. A comparação é descritiva; quatro registros não sustentam conclusões gerais.",
@@ -576,7 +832,7 @@
       {
         "text": "Quantos registros existem no exemplo resolvido do projeto?",
         "expected": 4,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "São duas observações em cada turma.",
         "hint": "Conte as linhas de dados, sem o cabeçalho.",
         "solution_code": "len([6,8,5,9])"
@@ -584,14 +840,14 @@
       {
         "text": "Qual é a diferença entre as médias das duas turmas do exemplo?",
         "expected": 0,
-        "tolerance": 0.01,
+        "tolerance": 0,
         "feedback": "Ambas são 7; a igualdade das médias não garante igualdade das distribuições.",
         "hint": "Calcule (6+8)/2 e (5+9)/2.",
         "solution_code": "mean([6,8])-mean([5,9])"
       }
     ],
     "challenge": "Use o notebook inicial e o CSV sintético para responder como se distribuem as notas válidas por turma. Entregue uma tabela de resumos, dois gráficos relevantes e uma conclusão de 100–180 palavras com números, decisões de limpeza e pelo menos três limitações. Inclua uma pergunta para futura coleta de dados.",
-    "solution": "validas = df.dropna(subset=[\"nota\"]).copy()\nprint(validas.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))\nvalidas.boxplot(column=\"nota\", by=\"turma\")\nplt.suptitle(\"\")\nplt.title(\"Notas válidas por turma: dados sintéticos\")\nplt.ylabel(\"Nota (0–10)\")\nplt.show()\nvalidas.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()",
+    "solution": "dicionario = pd.DataFrame([\n    [\"id\", \"Identificador do registro\", \"nominal\", \"sem unidade\", \"nunique\"],\n    [\"turma\", \"Grupo do estudante sintético\", \"nominal\", \"A ou B\", \"value_counts\"],\n    [\"horas\", \"Duração de estudo\", \"quantitativa contínua registrada em horas inteiras\", \"horas\", \"média e desvio\"],\n    [\"nota\", \"Pontuação sintética\", \"quantitativa em escala registrada\", \"0 a 10\", \"mediana e quartis\"]\n], columns=[\"campo\", \"significado\", \"tipo estatístico\", \"unidade/categorias\", \"resumo\"])\nprint(dicionario.to_string(index=False))\nprint(\"IDs distintos:\", df[\"id\"].nunique())\nprint(\"Não calculamos média de id: identifica registros e não mede desempenho.\")\nvalidas = df.dropna(subset=[\"nota\"]).copy()\nprint(validas.groupby(\"turma\")[\"nota\"].agg([\"count\", \"mean\", \"median\", \"std\"]))\nvalidas.boxplot(column=\"nota\", by=\"turma\")\nplt.suptitle(\"\")\nplt.title(\"Notas válidas por turma: dados sintéticos\")\nplt.ylabel(\"Nota (0–10)\")\nplt.show()\nvalidas.plot.scatter(x=\"horas\", y=\"nota\", title=\"Horas e notas: dados sintéticos\")\nplt.show()\nprint(\"Descrição do boxplot: A concentra notas perto de 7; B tem mediana 8 e maior dispersão. Cada turma tem cinco notas válidas.\")\nprint(\"Descrição da dispersão: horas e notas apresentam associação crescente nos dez pares válidos; isso não comprova causalidade.\")\nprint(\"Pergunta: como se distribuem as notas válidas por turma neste conjunto sintético?\")\nprint(\"Limpeza: 12 registros originais; duas notas ausentes; dez notas válidas. Preservamos df.\")",
     "hints": [
       "Comece pela pergunta e pela unidade de observação.",
       "Use as decisões e convenções dos módulos anteriores."
@@ -611,6 +867,48 @@
       "Altere um valor do exemplo, preveja o efeito e execute novamente. Registre o que mudou.",
       "Restaure os dados do exemplo e resolva as duas questões. Só depois passe aos novos dados do desafio."
     ],
-    "solution_text": "Neste conjunto sintético, as dez notas válidas têm médias de 7 na turma A e 7,2 na B. As medianas são 7 e 8. A turma B apresenta maior dispersão amostral, com desvio padrão de aproximadamente 3,11, enquanto A tem cerca de 0,71. Excluí somente as duas linhas sem nota para os resumos de desempenho, mantendo o arquivo original. Cada turma contribuiu com cinco notas válidas. Essa decisão não garante ausência de viés: não sabemos por que as notas faltam. Os dados foram inventados, há poucos registros e a nota representa apenas uma dimensão do desempenho. Portanto, esta comparação não permite identificar uma turma ou professor melhor nem concluir que mais horas causam notas maiores. Para uma coleta futura, investigaria como os critérios de avaliação e as condições de estudo diferem entre turmas."
+    "solution_text": "Neste conjunto sintético, as dez notas válidas têm médias de 7 na turma A e 7,2 na B. As medianas são 7 e 8. A turma B apresenta maior dispersão amostral, com desvio padrão de aproximadamente 3,11, enquanto A tem cerca de 0,71. Excluí somente as duas linhas sem nota para os resumos de desempenho, mantendo o arquivo original. Cada turma contribuiu com cinco notas válidas. Essa decisão não garante ausência de viés: não sabemos por que as notas faltam. Os dados foram inventados, há poucos registros e a nota representa apenas uma dimensão do desempenho. Portanto, esta comparação não permite identificar uma turma ou professor melhor nem concluir que mais horas causam notas maiores. Para uma coleta futura, investigaria como os critérios de avaliação e as condições de estudo diferem entre turmas.",
+    "concept_question": {
+      "text": "Qual pergunta é respondível com o CSV sintético?",
+      "options": [
+        "Qual professor ensina melhor no Brasil?",
+        "Como se distribuem as notas válidas de A e B nestes registros?",
+        "Qual intervenção educacional causa maior aprendizagem?"
+      ],
+      "correct": 1,
+      "feedback": "A pergunta deve caber no conjunto de dados e no desenho disponível."
+    },
+    "rubric_levels": [
+      {
+        "criterion": "Pergunta explícita e compatível com os dados.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Pergunta explícita e compatível com os dados. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Origem sintética, dicionário de dados e limpeza documentados.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Origem sintética, dicionário de dados e limpeza documentados. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Tabela com contagens, centro e dispersão corretos.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Tabela com contagens, centro e dispersão corretos. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Dois gráficos legíveis com descrição textual.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Dois gráficos legíveis com descrição textual. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Conclusão responde à pergunta e apresenta três limitações.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Conclusão responde à pergunta e apresenta três limitações. A entrega mostra o procedimento e uma interpretação verificável."
+      },
+      {
+        "criterion": "Notebook executa do início ao fim e propõe próxima coleta.",
+        "partial": "Há uma tentativa, mas falta evidência, contexto ou justificativa para este critério.",
+        "complete": "Notebook executa do início ao fim e propõe próxima coleta. A entrega mostra o procedimento e uma interpretação verificável."
+      }
+    ]
   }
 ]

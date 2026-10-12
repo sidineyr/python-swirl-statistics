@@ -4,7 +4,7 @@
 
 O gerador cria dez páginas, dez notebooks iniciais e dez soluções, a página inicial, ajuda, fontes e sitemap. As páginas anteriores e a CLI foram mantidas. `site/course.js` confere números; não executa Python. Os notebooks executam Python real no Colab ou no Jupyter. Colab exige conta Google para execução; há alternativa local sem cadastro. O site não lê resultados nem salva arquivos do Colab.
 
-Progresso web usa a chave nova `python-swirl-online-v1`. Arquivos de progresso da CLI não foram alterados. Visita, conferências numéricas, execução autodeclarada e autoavaliação são registros separados. Editar uma resposta remove a marca de conclusão. Refazer mantém textos. Importação de conflitos concatena textos e pede nova conferência. Exportação é a cópia portátil; não há servidor ou sincronização de contas.
+Progresso web usa a chave nova `python-swirl-online-v1`. Arquivos de progresso da CLI não foram alterados. Visita, conferências numéricas, execução autodeclarada e autoavaliação são registros separados. Editar uma resposta remove a marca de conclusão. Refazer mantém textos. Importação de conflitos concatena textos e pede nova conferência. Exportação está disponível na página inicial e em cada aula. Quando localStorage falha, exporte na própria aula antes de navegar; a página inicial não pode recuperar a memória da página anterior. Exportação é a cópia portátil; não há servidor ou sincronização de contas.
 
 ## Verificação antes de publicar
 

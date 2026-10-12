@@ -1,6 +1,6 @@
-# Curadoria de vídeos — 8/10/2026
+# Curadoria de vídeos — revisão de 12/10/2026
 
-Títulos, autoria e incorporação confirmados pelo endpoint oEmbed do YouTube. Tema comparado com descrição indexada ou página do autor. Links foram abertos; algumas páginas bloquearam o buscador, mas oEmbed respondeu para todos os recursos. Reprodução integral, disponibilidade de legendas, duração e adequação de cada minuto não foram verificadas. Sem timestamps inventados. Os vídeos são complementares; textos e notebooks desenvolvem os objetivos completos.
+Os onze títulos e autores foram reconfirmados em 12/10/2026 pelo oEmbed (HTTP 200). Os onze players foram criados nas páginas públicas, mas isso não valida reprodução integral. Títulos, autoria e incorporação confirmados pelo endpoint oEmbed do YouTube. Tema comparado com descrição indexada ou página do autor. Links foram abertos; algumas páginas bloquearam o buscador, mas oEmbed respondeu para todos os recursos. Reprodução integral, disponibilidade de legendas, duração e adequação de cada minuto não foram verificadas. Sem timestamps inventados. Os vídeos são complementares; textos e notebooks desenvolvem os objetivos completos.
 
 | Módulo | Título | Canal | URL | Conceitos relacionados |
 | --- | --- | --- | --- | --- |

@@ -22,9 +22,11 @@ for(const m of modules){
  for(const [i,q] of m.questions.entries()){
   let box=d.querySelector(`[data-question="${i}"]`),input=box.querySelector('input'),button=box.querySelector('button');
   for(const invalid of ['','print(4)','Infinity','0x10']){input.value=invalid;button.click();assert.match(box.querySelector('[role=status]').textContent,/Formato/);}
+  if(q.tolerance===0){input.value=String(q.expected+.009);button.click();assert.match(box.querySelector('[role=status]').textContent,/Cálculo/);}
   input.value=String(q.expected+100);button.click();assert.match(box.querySelector('[role=status]').textContent,/Cálculo/);
   input.value=String(q.expected).replace('.',',');event(w,input,'input');button.click();assert.match(box.querySelector('[role=status]').textContent,/Resultado conferido/);
  }
+ const choice=d.querySelector('#concept-choice');choice.value=String(m.concept_question.correct);event(w,choice,'change');d.querySelector('.check-concept').click();assert.match(d.querySelector('.concept-feedback').textContent,/Decisão conferida/);
  for(const a of d.querySelectorAll('[data-note]')){a.value='Meu procedimento e interpretação com limites.';event(w,a,'input');}
  for(const c of d.querySelectorAll('input[type=checkbox]')){c.checked=true;event(w,c,'change');}
  d.getElementById('complete-lesson').click();assert.match(d.getElementById('completion-feedback').textContent,/Atividade concluída/);
@@ -54,3 +56,13 @@ console.log('OK: all 10 routes, correct/wrong/malformed answers, completion gate
  d.getElementById('export-course').click();assert.equal(exported,true);
  dom.window.close();console.log('OK: export, import conflict preservation and invalid import rollback.');
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+// Regression: exporting on a lesson must preserve texts when localStorage is blocked.
+{
+ const dom=page(modules[0].slug+'.html',null,true),w=dom.window,d=w.document;
+ const note=d.getElementById('reflection'); note.value='Resposta preservada sem armazenamento';event(w,note,'input');
+ let blob; w.URL.createObjectURL=value=>{blob=value;return 'blob:test'};w.URL.revokeObjectURL=()=>{};w.HTMLAnchorElement.prototype.click=function(){};
+ const leaving=new w.Event('beforeunload',{cancelable:true});w.dispatchEvent(leaving);assert.equal(leaving.defaultPrevented,true);
+ d.getElementById('export-course').click();assert.ok(blob);const reader=new w.FileReader();
+ reader.onload=()=>{const state=JSON.parse(reader.result);assert.equal(state.modules[modules[0].slug].notes.reflection,note.value);dom.window.close();console.log('OK: blocked storage lesson export retains answers.')};reader.readAsText(blob);
+}

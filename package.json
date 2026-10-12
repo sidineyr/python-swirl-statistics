@@ -1,6 +1,11 @@
 {
   "name": "python-swirl-course-checks",
   "private": true,
-  "scripts": {"test": "node scripts/test_activities.cjs && node scripts/test_course_web.cjs"},
-  "devDependencies": {"jsdom": "^27.0.0"}
+  "scripts": {
+    "test": "node scripts/test_activities.cjs && node scripts/test_course_web.cjs && node scripts/check_accessibility.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "jsdom": "^27.0.0"
+  }
 }

@@ -22,6 +22,12 @@ for path in sorted((ROOT/'site/notebooks').glob('*.ipynb')):
         assert not ns['conferir']('4',4,'texto')
         assert not ns['conferir'](True,1,'booleano')
         assert not ns['conferir'](float('nan'),4,'nan')
+    import numpy as np
+    with contextlib.redirect_stdout(io.StringIO()):
+        assert ns['conferir'](np.int64(2),2,'inteiro pandas')
+        assert ns['conferir'](np.float32(2.5),2.5,'float numpy')
+        assert not ns['conferir'](np.bool_(True),1,'booleano numpy')
+        assert not ns['conferir'](4.009,4,'resultado exato',tolerancia=0)
     import matplotlib.pyplot as plt
     plt.close('all')
     for q in modules[int(path.name[:2])-1]['questions']:

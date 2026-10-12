@@ -14,6 +14,7 @@ class Page(HTMLParser):
         self.canonical = []
         self.links = []
         self.titles = 0
+        self.in_svg = False
         self.headings = 0
         self.json_blocks = []
         self.in_json = False
@@ -22,7 +23,8 @@ class Page(HTMLParser):
         attrs = dict(attrs)
         if attrs.get("id"): self.ids.add(attrs["id"])
         if attrs.get("src"): self.links.append(attrs["src"])
-        if tag == "title": self.titles += 1
+        if tag == "svg": self.in_svg = True
+        if tag == "title" and not self.in_svg: self.titles += 1
         if tag == "h1": self.headings += 1
         if tag == "link" and attrs.get("rel") == "canonical": self.canonical.append(attrs["href"])
         if tag in ("a", "link") and attrs.get("href"): self.links.append(attrs["href"])
@@ -34,6 +36,7 @@ class Page(HTMLParser):
     def handle_data(self, data):
         if self.in_json: self.json_blocks[-1] += data
     def handle_endtag(self, tag):
+        if tag == "svg": self.in_svg = False
         if tag == "script": self.in_json = False
 
 pages = sorted(ROOT.glob("*.html"))

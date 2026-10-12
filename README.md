@@ -2,7 +2,7 @@
 
 **Aprenda Python e estatística com conceitos, vídeos e desafios.**
 
-Curso gratuito para iniciantes, idealizado e dirigido pedagogicamente pelo **[professor Sidiney Rodrigues](https://github.com/sidineyr)**. A reconstrução de 8/10/2026 oferece dez módulos, do primeiro cálculo à entrega de uma análise de dados.
+Curso gratuito para iniciantes, idealizado e dirigido pedagogicamente pelo **[professor Sidiney Rodrigues](https://github.com/sidineyr)**. A reconstrução de 8/10/2026, revisada em 12/10/2026, oferece dez módulos, do primeiro cálculo à entrega de uma análise de dados.
 
 ## Comece pelo curso on-line
 
@@ -31,7 +31,7 @@ A entrega final é um notebook com pergunta, preparação dos dados, medidas, gr
 
 ## Progresso e avaliação
 
-O curso guarda textos, conferências e rubricas no navegador e oferece exportação/importação. Visitar uma aula não equivale a concluir atividade. A conclusão combina conferência numérica e autoavaliação; não comprova domínio. Não há cadastro obrigatório no site, tutor com API paga ou certificado. O site não importa automaticamente resultados do Colab.
+O curso guarda textos, conferências numéricas e conceituais e rubricas no navegador e oferece exportação/importação. Visitar uma aula não equivale a concluir atividade. A conclusão combina conferência numérica e autoavaliação; não comprova domínio. Não há cadastro obrigatório no site, tutor com API paga ou certificado. O site não importa automaticamente resultados do Colab.
 
 ## Curso original no terminal
 
@@ -54,7 +54,7 @@ No Windows, use `py -3 -m python_swirl`. [Instalação](docs/INSTALACAO.md), [us
 
 ## Estado e limites
 
-Testes técnicos e revisão dos exemplos não substituem piloto com estudantes. Reprodução integral dos vídeos, legendas, revisão visual em dispositivos reais e acessibilidade assistiva precisam de revisão. Os vídeos possuem título/autoria confirmados e correspondência temática examinada, com limites registrados na curadoria. Colab autenticado não foi testado; os notebooks executaram localmente.
+Testes técnicos e revisão dos exemplos não substituem piloto com estudantes. Reprodução integral dos vídeos, legendas, revisão visual em dispositivos reais e acessibilidade assistiva precisam de revisão. Os vídeos possuem título/autoria confirmados e correspondência temática examinada, com limites registrados na curadoria. O notebook do projeto abriu publicamente no Colab; execução e salvamento autenticados não foram testados. Os notebooks executaram localmente. [Correções, evidências e tarefas externas](docs/REVISAO-2026-10-12.md).
 
 Inspirado no [swirl do R](https://swirlstats.com/); projeto independente sem vínculo oficial. Elaborado com assistência de ChatGPT/Codex sob orientação do idealizador. Código original MIT; conteúdo e dados sintéticos originais CC BY 4.0. Vídeos e materiais externos conservam suas próprias condições; respostas de estudantes não são abrangidas pela licença pública.
 

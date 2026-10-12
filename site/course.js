@@ -4,18 +4,26 @@
   const KEY = 'python-swirl-online-v1';
   const status = document.getElementById('storage-status') || document.getElementById('lesson-status');
   const announce = text => { if (status) status.textContent = text; };
+  let needsExport = false;
   let state = {version: 1, modules: {}, last: null}, durable = true;
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) { const parsed = JSON.parse(raw); if (validState(parsed)) state = parsed; else throw new Error('Formato desconhecido'); }
-  } catch (_) { durable = false; announce('Não foi possível ler o progresso. Esta sessão não será salva; exporte suas respostas.'); }
+  } catch (_) { durable = false; announce('Não foi possível ler o progresso. Esta sessão não será salva; exporte suas respostas nesta página antes de navegar ou recarregar.'); }
   function validState(s) {
     return s && s.version === 1 && s.modules && typeof s.modules === 'object' && !Array.isArray(s.modules) && Object.entries(s.modules).every(([key,m]) => /^\d{2}-[a-z-]+$/.test(key) && m && typeof m === 'object' && !Array.isArray(m) && (!m.notes || (!Array.isArray(m.notes) && typeof m.notes === 'object' && Object.entries(m.notes).every(([k,v]) => ['prediction','explanation','reflection'].includes(k) && typeof v === 'string'))) && ['checks','criteria'].every(k => !m[k] || (!Array.isArray(m[k]) && typeof m[k] === 'object' && Object.values(m[k]).every(v => typeof v === 'boolean'))) && (!m.answers || (!Array.isArray(m.answers) && typeof m.answers === 'object' && Object.values(m.answers).every(v => typeof v === 'string'))));
   }
   function save() {
+    needsExport = true;
     try { if (durable) localStorage.setItem(KEY, JSON.stringify(state)); }
-    catch (_) { durable = false; announce('Armazenamento indisponível. Seus textos ficam só nesta sessão; exporte suas respostas na página inicial.'); }
+    catch (_) { durable = false; announce('Armazenamento indisponível. Seus textos ficam só nesta sessão; exporte suas respostas nesta página antes de navegar ou recarregar.'); }
   }
+  window.addEventListener('beforeunload', event => { if (!durable && needsExport) { event.preventDefault(); event.returnValue = ''; } });
+  document.getElementById('export-course')?.addEventListener('click', () => {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(state, null, 2)], {type:'application/json'}));
+    const a = document.createElement('a'); a.href = url; a.download = 'python-swirl-respostas.json'; a.click(); needsExport = false;
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
   const root = document.getElementById('course-lesson');
   if (root) {
     const slug = root.dataset.module;
@@ -51,10 +59,21 @@
         m.answers[key] = input.value; m.completed = false; save();
       });
     }
+    const concept = root.querySelector('.concept-question');
+    const choice = concept.querySelector('select'), conceptFeedback = concept.querySelector('[role=status]');
+    choice.value = m.answers.concept || '';
+    choice.addEventListener('change', () => { m.answers.concept = choice.value; m.checks.concept = false; m.completed = false; conceptFeedback.textContent = ''; save(); });
+    concept.querySelector('button').addEventListener('click', () => {
+      m.checks.concept = choice.value !== '' && choice.value === concept.dataset.correct;
+      conceptFeedback.textContent = choice.value === '' ? 'Escolha uma resposta antes de conferir.' : m.checks.concept ? 'Decisão conferida. ' + conceptFeedback.dataset.ok : 'Revise a decisão. ' + conceptFeedback.dataset.ok;
+      m.answers.concept = choice.value; m.completed = false; save();
+    });
+    if (m.checks.concept) conceptFeedback.textContent = 'Decisão já conferida. ' + conceptFeedback.dataset.ok;
     document.getElementById('complete-lesson').addEventListener('click', () => {
       const target = document.getElementById('completion-feedback');
       if (!m.executed) target.textContent = 'Execute as células do notebook e registre essa prática antes de concluir.';
       else if (!questions.every(q => m.checks[q.dataset.question])) target.textContent = 'Confira o resultado das duas questões antes de concluir.';
+      else if (!m.checks.concept) target.textContent = 'Confira também a decisão sobre o caso antes de concluir.';
       else if (!(m.notes.explanation || '').trim() || !(m.notes.reflection || '').trim()) target.textContent = 'Registre o procedimento e sua conclusão. O conteúdo será revisado por você com a rubrica.';
       else if (![...root.querySelectorAll('[data-criterion]')].every(c => c.checked)) target.textContent = 'Revise sua entrega com todos os critérios. Use as pistas para melhorar o que ainda falta.';
       else { m.completed = true; save(); target.textContent = 'Atividade concluída por conferência numérica e autoavaliação. Seu notebook deve ser salvo separadamente. Isso não certifica domínio.'; }
@@ -62,7 +81,7 @@
     document.getElementById('redo-lesson').addEventListener('click', () => {
       m.checks = {}; m.criteria = {}; m.executed = false; m.completed = false;
       root.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);
-      root.querySelectorAll('.answer-feedback').forEach(p => p.textContent = '');
+      root.querySelectorAll('.answer-feedback, .concept-feedback').forEach(p => p.textContent = '');
       save(); document.getElementById('completion-feedback').textContent = 'Conferências reiniciadas. Seus textos e resultados foram preservados.';
     });
     for (const button of root.querySelectorAll('.load-video')) button.addEventListener('click', () => {
@@ -70,7 +89,7 @@
       frame.src = 'https://www.youtube-nocookie.com/embed/' + button.dataset.video;
       frame.allow = 'encrypted-media; picture-in-picture'; frame.allowFullscreen = true;
       frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      button.parentElement.querySelector('.video-slot').replaceChildren(frame); button.hidden = true;
+      button.parentElement.querySelector('.video-slot').replaceChildren(frame); button.hidden = true; frame.tabIndex = 0; frame.focus();
     });
   }
   const cards = [...document.querySelectorAll('[data-card]')];
@@ -87,10 +106,6 @@
       if (state.last && cards.some(c => c.dataset.card === state.last)) { resume.href = state.last + '.html'; resume.textContent = 'Retomar minha última aula'; }
     }
     render();
-    document.getElementById('export-course').addEventListener('click', () => {
-      const url = URL.createObjectURL(new Blob([JSON.stringify(state, null, 2)], {type:'application/json'}));
-      const a = document.createElement('a'); a.href = url; a.download = 'python-swirl-respostas.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-    });
     document.getElementById('import-course').addEventListener('change', async event => {
       const file = event.target.files[0]; if (!file) return;
       if (file.size > 2 * 1024 * 1024) { announce('Arquivo grande demais; limite de importação: 2 MB.'); return; }
