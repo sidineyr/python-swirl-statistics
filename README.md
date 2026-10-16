@@ -59,3 +59,8 @@ Testes técnicos e revisão dos exemplos não substituem piloto com estudantes. 
 Inspirado no [swirl do R](https://swirlstats.com/); projeto independente sem vínculo oficial. Elaborado com assistência de ChatGPT/Codex sob orientação do idealizador. Código original MIT; conteúdo e dados sintéticos originais CC BY 4.0. Vídeos e materiais externos conservam suas próprias condições; respostas de estudantes não são abrangidas pela licença pública.
 
 Caso gere lucro, o idealizador declara que será destinado ao **[Hospital Pequeno Príncipe](https://pequenoprincipe.org.br/doadores/apoie-o-pequeno-principe/)**. Isso não comprova doações nem representa parceria ou endosso institucional.
+
+
+## Contador de acessos (16/10/2026)
+
+A página inicial exibe um contador público Hits, chave `sidineyr.github.io/python-swirl-statistics`. Conta carregamentos do indicador desde a instalação, não pessoas únicas. O serviço externo recebe dados técnicos da conexão; nenhuma resposta de atividade é enviada. O portfólio consulta o total pela API de estatísticas, sem carregar o SVG e sem acrescentar acessos. Histórico anterior à instalação não foi estimado.
