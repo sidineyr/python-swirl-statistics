@@ -1,5 +1,6 @@
 """Generate public course and portable notebooks from the reviewed curriculum."""
 import json
+from shutil import copyfile
 from pathlib import Path
 from html import escape as e
 ROOT=Path(__file__).resolve().parents[1]
@@ -8,6 +9,16 @@ BASE='https://sidineyr.github.io/python-swirl-statistics/'
 MODULES=json.loads((ROOT/'curriculum/modules.json').read_text())
 VIDEOS={v['id']:v for v in json.loads((ROOT/'curriculum/videos.json').read_text())}
 CSV=(SITE/'dados/turmas.csv').read_text()
+TEMPLATES=ROOT/'scripts/templates'
+# These reviewed sources include the current catalog and affiliate disclosures.
+# Never reconstruct the module from an older advertising-only snippet.
+catalog_schema=json.dumps({'@context':'https://schema.org','@type':'WebPage','name':'Materiais para aprender e criar','url':BASE+'materiais.html','inLanguage':'pt-BR','author':{'@type':'Person','name':'Sidiney Rodrigues'}},ensure_ascii=False)
+catalog=(TEMPLATES/'materiais.html').read_text(encoding='utf-8')
+catalog_metadata=f'<link rel="canonical" href="{BASE}materiais.html"><script type="application/ld+json">{catalog_schema}</script>'
+assert catalog.count('</head>') == 1, 'Catalog template must have one head'
+(SITE/'materiais.html').write_text(catalog.replace('</head>',catalog_metadata+'</head>',1),encoding='utf-8')
+(SITE/'assets').mkdir(exist_ok=True)
+copyfile(TEMPLATES/'educational-ads.js',SITE/'assets/educational-ads.js')
 def paragraphs(values): return ''.join('<p>'+e(v)+'</p>' for v in values)
 def items(values): return '<ul>'+''.join('<li>'+e(v)+'</li>' for v in values)+'</ul>'
 def page(name,title,body,scripts=''):
@@ -98,3 +109,4 @@ resources=f'''<h1>Vídeos, fontes e dados</h1><p>Recursos gratuitos em portuguê
 urls=[BASE+p.name for p in sorted(SITE.glob('*.html'))]
 (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+u+'</loc></url>\n' for u in urls)+'</urlset>\n')
 print('Generated 10 modules, 20 notebooks, home, help and resources.')
+

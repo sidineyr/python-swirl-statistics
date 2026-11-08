@@ -40,7 +40,17 @@ class Page(HTMLParser):
         if tag == "script": self.in_json = False
 
 pages = sorted(ROOT.glob("*.html"))
-assert len(pages) == 18
+modules = json.loads((ROOT.parent / 'curriculum/modules.json').read_text(encoding='utf-8'))
+assert len(modules) == 10 and len({module['slug'] for module in modules}) == 10
+expected_pages = {module['slug'] + '.html' for module in modules} | {
+    'index.html', 'como-estudar.html', 'recursos.html', 'instalacao.html',
+    'privacidade.html', 'media-mediana.html', 'dispersao.html', 'amostragem.html',
+    'materiais.html',
+}
+assert {path.name for path in pages} == expected_pages, 'Missing or unexpected public pages'
+assert (ROOT / 'assets/educational-ads.js').read_bytes() == (
+    ROOT.parent / 'scripts/templates/educational-ads.js'
+).read_bytes(), 'Generated affiliate module differs from its reviewed source'
 urls = []
 for path in pages:
     parsed = Page()
@@ -67,4 +77,5 @@ for path in pages:
 sitemap = ET.parse(ROOT / "sitemap.xml")
 locations = [node.text for node in sitemap.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
 assert sorted(locations) == sorted(urls)
-print("OK: 18 pages, canonical URLs, JSON-LD, local links and sitemap")
+print(f"OK: {len(pages)} pages, canonical URLs, JSON-LD, local links, reviewed affiliate module and sitemap")
+
